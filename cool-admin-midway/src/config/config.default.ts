@@ -68,15 +68,9 @@ export default {
     file: {},
     // 判断是否初始化的方式
     initJudge: 'db',
-    // 启用多租户
-    multTenant: {
-      enable: true,
-      mode: 'simple', // 简单模式：共享数据库，通过 tenantId 隔离
-    },
-    // 是否开启多租户
+    // 开启多租户
     tenant: {
-      // 是否开启多租户
-      enable: false,
+      enable: true, // 启用多租户
       // 需要过滤多租户的url, 支持通配符， 如/admin/**/* 表示admin模块下的所有接口都进行多租户过滤
       urls: [],
     },
