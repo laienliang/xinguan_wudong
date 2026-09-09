@@ -101,8 +101,8 @@ export class TestHelper {
    */
   static async cleanTestData(entityClass: any, condition: any) {
     const app = await this.createTestApp();
-    const repository = await app.getApplicationContext().getAsync(entityClass);
-    if (repository) {
+    const repository: any = await app.getApplicationContext().getAsync(entityClass);
+    if (repository && repository.delete) {
       await repository.delete(condition);
     }
   }
