@@ -8,7 +8,11 @@ import * as fs from 'fs';
  * @returns
  */
 const getKeys = () => {
-  const configFile = path.join(__dirname, '../config/config.default.js');
+  // 测试环境中优先使用 .ts 文件
+  let configFile = path.join(__dirname, '../config/config.default.ts');
+  if (!fs.existsSync(configFile)) {
+    configFile = path.join(__dirname, '../config/config.default.js');
+  }
   const configContent = fs.readFileSync(configFile, 'utf8');
   const keys = configContent.match(/keys: '([^']+)'/)?.[1];
   return keys;
