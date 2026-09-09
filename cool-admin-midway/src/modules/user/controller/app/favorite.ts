@@ -2,15 +2,23 @@ import { Provide, Inject, Get, Query } from '@midwayjs/core';
 import { CoolController, BaseController } from '@cool-midway/core';
 import { UserFavoriteService } from '../../service/favorite';
 import { UserFavoriteEntity } from '../../entity/favorite';
+import { getUserFromContext } from '../../utils/auth';
 
 /**
  * 用户收藏
  */
 @Provide()
 @CoolController({
+  prefix: '/app/user/favorite',
   api: ['add', 'delete', 'list', 'page'],
   entity: UserFavoriteEntity,
   service: UserFavoriteService,
+  insertParam: ctx => {
+    const user = getUserFromContext(ctx, '5bd61df7-8a04-4a6e-aaad-9d520d0ec195x');
+    return {
+      userId: user?.id,
+    };
+  },
   listQueryOp: {
     fieldEq: ['userId', 'targetType'],
     addOrderBy: {

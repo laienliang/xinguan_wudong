@@ -2,6 +2,8 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ['**/test/**/*.test.ts'],
+  // 串行执行避免端口冲突
+  maxWorkers: 1,
   collectCoverageFrom: [
     'src/modules/**/*.service.ts',
     'src/modules/**/*.controller.ts',
@@ -23,5 +25,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   testTimeout: 30000,
+  // Midway 测试应用会保留框架级异步句柄，测试完成后由 Jest 结束进程。
+  forceExit: true,
   verbose: true,
 };

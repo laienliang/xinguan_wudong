@@ -10,7 +10,6 @@ import {
 } from '@midwayjs/core';
 import { IMidwayKoaApplication } from '@midwayjs/koa';
 import { PLUGIN_CACHE_KEY, PluginCenterService } from '../service/center';
-import { PluginTypesService } from '../service/types';
 
 /**
  * 插件事件
@@ -29,16 +28,16 @@ export class PluginAppEvent {
   @InjectClient(CachingFactory, 'default')
   midwayCache: MidwayCache;
 
-  @Inject()
-  pluginCenterService: PluginCenterService;
-
-  @Inject()
-  pluginTypesService: PluginTypesService;
-
   @Event('onServerReady')
   async onServerReady() {
+    // 测试环境跳过插件初始化
+    if (process.env.NODE_ENV === 'unittest') {
+      return;
+    }
     await this.midwayCache.set(PLUGIN_CACHE_KEY, []);
-    this.pluginCenterService.init();
-    // this.pluginTypesService.reGenerate();
+    const pluginCenterService = await this.app
+      .getApplicationContext()
+      .getAsync(PluginCenterService);
+    pluginCenterService.init();
   }
 }

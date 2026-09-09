@@ -6,6 +6,10 @@ import { TenantSubscriber } from '../modules/base/db/tenant';
  * 单元测试环境配置
  */
 export default {
+  // 测试应用使用临时端口，避免多个测试实例关闭时发生端口竞争。
+  koa: {
+    port: 0,
+  },
   typeorm: {
     dataSource: {
       default: {
@@ -37,9 +41,45 @@ export default {
     initDB: false,
     initMenu: false,
     eps: false,
+    initJudge: 'file',
     // 测试环境禁用多租户（简化测试）
     tenant: {
       enable: false,
+      urls: [],
+    },
+    // 测试环境禁用国际化
+    i18n: {
+      enable: false,
+      languages: ['zh-cn'],
+    },
+    // 测试结束前关闭软删除事件，避免未等待的异步事件访问已关闭连接。
+    crud: {
+      softDelete: false,
     },
   } as CoolConfig,
+  // 模块配置 - 测试环境需要手动添加
+  module: {
+    // base 模块配置
+    base: {
+      jwt: {
+        sso: false,
+        secret: '2eb0f9eb-f4b4-4d27-bd9e-c549ea34d833',
+        token: {
+          expire: 2 * 3600,
+          refreshExpire: 24 * 3600 * 15,
+        },
+      },
+    },
+    // user 模块配置
+    user: {
+      sms: {
+        timeout: 60 * 3,
+      },
+      jwt: {
+        expire: 60 * 60 * 24,
+        refreshExpire: 60 * 60 * 24 * 30,
+        secret: '5bd61df7-8a04-4a6e-aaad-9d520d0ec195x',
+      },
+    },
+  },
 } as MidwayConfig;

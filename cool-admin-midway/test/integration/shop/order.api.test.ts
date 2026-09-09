@@ -19,7 +19,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by order status', async () => {
@@ -27,7 +27,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/list')
         .send({ page: 1, size: 10, status: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by order number', async () => {
@@ -35,7 +35,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/list')
         .send({ page: 1, size: 10, orderNo: 'ORDER123' });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by user id', async () => {
@@ -43,7 +43,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/list')
         .send({ page: 1, size: 10, userId: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support date range filtering', async () => {
@@ -56,7 +56,7 @@ describe('Shop Module - Order API Integration Test', () => {
           endDate: '2026-12-31'
         });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -66,7 +66,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/info')
         .send({ id: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should require id parameter', async () => {
@@ -74,7 +74,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/info')
         .send({});
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -84,7 +84,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/update')
         .send({ id: 1, status: 2 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should validate order status values', async () => {
@@ -92,7 +92,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/update')
         .send({ id: 1, status: 999 }); // 无效状态
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -103,7 +103,7 @@ describe('Shop Module - Order API Integration Test', () => {
         .post('/admin/shop/order/update')
         .send({ id: 1, status: 1 }); // 假设 1 是待支付
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 });

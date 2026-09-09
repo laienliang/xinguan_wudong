@@ -38,14 +38,22 @@ export class UserMiddleware implements IMiddleware<Context, NextFunction> {
       let { url } = ctx;
       url = url.replace(this.prefix, '').split('?')[0];
       if (_.startsWith(url, '/app/')) {
-        const token = ctx.get('Authorization');
+        let token = ctx.get('Authorization');
+
+        // 去掉 Bearer 前缀（如果有）
+        if (token && token.startsWith('Bearer ')) {
+          token = token.substring(7);
+        }
+
         try {
           ctx.user = jwt.verify(token, this.jwtConfig.secret);
 
           if (ctx.user.isRefresh) {
             throw new CoolCommException('登录失效~');
           }
-        } catch (error) {}
+        } catch (error) {
+          // JWT 验证失败，保持 ctx.user 为 undefined
+        }
         // 使用matchUrl方法来检查URL是否应该被忽略
         const isIgnored = this.ignoreUrls.some(pattern =>
           this.utils.matchUrl(pattern, url)

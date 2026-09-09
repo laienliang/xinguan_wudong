@@ -1,26 +1,26 @@
-import { createApp, close, createHttpRequest } from '@midwayjs/mock';
-import { Framework } from '@midwayjs/koa';
+import { createHttpRequest } from '@midwayjs/mock';
+import { TestHelper } from '../helpers/test-helper';
 
 describe('test/user/address.test.ts', () => {
   let app;
   let token: string;
 
   beforeAll(async () => {
-    app = await createApp<Framework>();
+    app = await TestHelper.createTestApp();
     // 先登录获取 token
     const loginResult = await createHttpRequest(app)
-      .post('/app/user/login')
+      .post('/app/user/login/password')
       .send({ phone: '13800138000', password: '123456' });
-    token = loginResult.body.data.token;
+    token = loginResult.body?.data?.token;
   });
 
   afterAll(async () => {
-    await close(app);
+    await TestHelper.closeTestApp();
   });
 
   it('should create address', async () => {
     const result = await createHttpRequest(app)
-      .post('/app/user/address')
+      .post('/app/user/address/add')
       .set('Authorization', `Bearer ${token}`)
       .send({
         name: '张三',
@@ -32,24 +32,24 @@ describe('test/user/address.test.ts', () => {
       });
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
     expect(result.body.data).toHaveProperty('id');
   });
 
   it('should list addresses', async () => {
     const result = await createHttpRequest(app)
-      .get('/app/user/address')
+      .post('/app/user/address/list')
       .set('Authorization', `Bearer ${token}`);
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
     expect(Array.isArray(result.body.data)).toBe(true);
   });
 
   it('should set default address', async () => {
     // 先创建地址
     const createResult = await createHttpRequest(app)
-      .post('/app/user/address')
+      .post('/app/user/address/add')
       .set('Authorization', `Bearer ${token}`)
       .send({
         name: '李四',
@@ -68,6 +68,6 @@ describe('test/user/address.test.ts', () => {
       .set('Authorization', `Bearer ${token}`);
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
   });
 });

@@ -9,9 +9,16 @@ export class TestHelper {
   private static app: Application;
 
   /**
-   * 创建测试应用
+   * 创建测试应用 - 优先使用全局实例
    */
   static async createTestApp() {
+    // 优先使用全局应用实例
+    if ((global as any).testApp) {
+      this.app = (global as any).testApp;
+      return this.app;
+    }
+
+    // 如果没有全局实例，则创建新的
     if (!this.app) {
       this.app = await createApp<Framework>();
     }
@@ -19,12 +26,45 @@ export class TestHelper {
   }
 
   /**
-   * 关闭测试应用
+   * 关闭测试应用 - 不关闭全局实例
    */
   static async closeTestApp() {
+    // 如果使用的是全局实例，不关闭
+    if ((global as any).testApp && this.app === (global as any).testApp) {
+      return;
+    }
+
+    // 只关闭非全局实例
     if (this.app) {
-      await close(this.app);
-      this.app = null;
+      try {
+        await close(this.app);
+      } catch (error) {
+        console.error('关闭应用时出错:', error);
+      } finally {
+        this.app = null;
+      }
+    }
+  }
+
+  /**
+   * 强制关闭所有连接
+   */
+  static async forceClose() {
+    if (this.app) {
+      try {
+        const dataSourceManager: any = this.app.getApplicationContext().get('dataSourceManager');
+        if (dataSourceManager && typeof dataSourceManager.getDataSources === 'function') {
+          const dataSources = dataSourceManager.getDataSources();
+          for (const [name, dataSource] of Object.entries(dataSources)) {
+            if (dataSource && typeof dataSource['destroy'] === 'function') {
+              await dataSource['destroy']();
+            }
+          }
+        }
+      } catch (error) {
+        // 忽略错误
+      }
+      await this.closeTestApp();
     }
   }
 
@@ -46,6 +86,23 @@ export class TestHelper {
         password: '123456',
         captchaId: 'test',
         verifyCode: '1234',
+      });
+
+    if (result.body && result.body.data && result.body.data.token) {
+      return result.body.data.token;
+    }
+    return null;
+  }
+
+  /**
+   * 模拟前台用户登录并获取 Token
+   */
+  static async getUserToken(phone = '13800138000', password = '123456') {
+    const result = await this.createRequest()
+      .post('/app/user/login/password')
+      .send({
+        phone,
+        password,
       });
 
     if (result.body && result.body.data && result.body.data.token) {

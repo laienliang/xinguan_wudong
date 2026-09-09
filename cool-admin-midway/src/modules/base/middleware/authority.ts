@@ -1,4 +1,4 @@
-import { App, Config, Inject, Middleware } from '@midwayjs/core';
+import { App, Config, Inject, Middleware, Provide } from '@midwayjs/core';
 import * as _ from 'lodash';
 import { CoolCommException, CoolUrlTagData, TagTypes } from '@cool-midway/core';
 import * as jwt from 'jsonwebtoken';
@@ -15,6 +15,7 @@ import { Utils } from '../../../comm/utils';
 /**
  * 权限校验
  */
+@Provide()
 @Middleware()
 export class BaseAuthorityMiddleware
   implements IMiddleware<Context, NextFunction>

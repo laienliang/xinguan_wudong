@@ -11,11 +11,12 @@ export default {
     dataSource: {
       default: {
         type: 'mysql',
-        host: '127.0.0.1',
-        port: 3306,
-        username: 'root',
-        password: '123456',
-        database: 'cool',
+        host: process.env.DB_HOST || '127.0.0.1',
+        port: parseInt(process.env.DB_PORT || '3306'),
+        username: process.env.DB_USER || 'root',
+        // 允许通过环境变量覆盖数据库密码，未配置时保持原默认值。
+        password: process.env.DB_PASSWORD ?? '123456',
+        database: process.env.DB_NAME || 'cool',
         // 自动建表 注意：线上部署的时候不要使用，有可能导致数据丢失
         synchronize: false,
         // 打印日志

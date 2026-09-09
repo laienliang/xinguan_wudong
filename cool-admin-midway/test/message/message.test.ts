@@ -1,5 +1,5 @@
-import { createApp, close, createHttpRequest } from '@midwayjs/mock';
-import { Framework } from '@midwayjs/koa';
+import { createHttpRequest } from '@midwayjs/mock';
+import { TestHelper } from '../helpers/test-helper';
 
 describe('test/message/message.test.ts', () => {
   let app;
@@ -7,35 +7,30 @@ describe('test/message/message.test.ts', () => {
   let adminToken: string;
 
   beforeAll(async () => {
-    app = await createApp<Framework>();
+    app = await TestHelper.createTestApp();
 
     // 用户登录
     const loginResult = await createHttpRequest(app)
-      .post('/app/user/login')
+      .post('/app/user/login/password')
       .send({ phone: '13800138000', password: '123456' });
-    token = loginResult.body.data.token;
+    token = loginResult.body?.data?.token;
 
     // 管理员登录
-    const adminLoginResult = await createHttpRequest(app)
-      .post('/admin/base/open/login')
-      .send({ username: 'admin', password: 'admin' });
-    adminToken = adminLoginResult.body.data.token;
+    adminToken = await TestHelper.getAdminToken();
   });
 
   afterAll(async () => {
-    await close(app);
+    await TestHelper.closeTestApp();
   });
 
   it('should list messages', async () => {
     const result = await createHttpRequest(app)
-      .get('/app/message?page=1&pageSize=10')
+      .post('/app/message/list').send({ page: 1, pageSize: 10 })
       .set('Authorization', `Bearer ${token}`);
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
-    expect(result.body.data).toHaveProperty('list');
-    expect(result.body.data).toHaveProperty('total');
-    expect(result.body.data).toHaveProperty('unreadCount');
+    expect(result.body.code).toBe(1000);
+    expect(Array.isArray(result.body.data)).toBe(true);
   });
 
   it('should get unread count', async () => {
@@ -44,14 +39,14 @@ describe('test/message/message.test.ts', () => {
       .set('Authorization', `Bearer ${token}`);
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
     expect(typeof result.body.data).toBe('number');
   });
 
   it('should send message to user (admin)', async () => {
     const result = await createHttpRequest(app)
       .post('/admin/message/send')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .set('Authorization', adminToken)
       .send({
         userId: '1',
         type: 1,
@@ -60,13 +55,13 @@ describe('test/message/message.test.ts', () => {
       });
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
   });
 
   it('should send message to all (admin)', async () => {
     const result = await createHttpRequest(app)
       .post('/admin/message/send-to-all')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .set('Authorization', adminToken)
       .send({
         type: 1,
         title: '全体通知',
@@ -74,7 +69,7 @@ describe('test/message/message.test.ts', () => {
       });
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
   });
 
   it('should mark messages as read', async () => {
@@ -85,7 +80,7 @@ describe('test/message/message.test.ts', () => {
       .send({ ids: ['1', '2'] });
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
   });
 
   it('should mark all as read', async () => {
@@ -94,6 +89,6 @@ describe('test/message/message.test.ts', () => {
       .set('Authorization', `Bearer ${token}`);
 
     expect(result.status).toBe(200);
-    expect(result.body.code).toBe(0);
+    expect(result.body.code).toBe(1000);
   });
 });

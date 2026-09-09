@@ -1,4 +1,4 @@
-import { TestHelper, TestDataFactory } from '../../helpers/test-helper';
+import { TestHelper, TestDataFactory } from '../helpers/test-helper';
 
 /**
  * 性能测试套件

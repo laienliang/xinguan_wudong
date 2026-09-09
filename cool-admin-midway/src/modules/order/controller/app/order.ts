@@ -2,15 +2,23 @@ import { Provide, Inject, Get, Put } from '@midwayjs/core';
 import { CoolController, BaseController } from '@cool-midway/core';
 import { OrderService } from '../../service/order';
 import { OrderEntity } from '../../entity/order';
+import { getUserFromContext } from '../../../user/utils/auth';
 
 /**
  * 订单管理（前台）
  */
 @Provide()
 @CoolController({
+  prefix: '/app/order',
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: OrderEntity,
   service: OrderService,
+  insertParam: ctx => {
+    const user = getUserFromContext(ctx, '5bd61df7-8a04-4a6e-aaad-9d520d0ec195x');
+    return {
+      userId: user?.id,
+    };
+  },
   listQueryOp: {
     fieldEq: ['userId', 'status', 'type'],
     addOrderBy: {

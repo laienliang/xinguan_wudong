@@ -29,6 +29,11 @@ export class BaseTranslateMiddleware
 
   resolve() {
     return async (ctx, next: NextFunction) => {
+      // 测试环境直接跳过翻译中间件
+      if (process.env.NODE_ENV === 'unittest') {
+        return await next();
+      }
+
       const url = ctx.url;
       const language = ctx.get('language');
       let data;

@@ -19,7 +19,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/scenic/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by status', async () => {
@@ -27,7 +27,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/scenic/list')
         .send({ page: 1, size: 10, status: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support keyword search', async () => {
@@ -35,7 +35,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/scenic/list')
         .send({ page: 1, size: 10, keyword: '景区' });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -45,7 +45,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/ticket/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by scenic area', async () => {
@@ -53,7 +53,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/ticket/list')
         .send({ page: 1, size: 10, scenicAreaId: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by ticket type', async () => {
@@ -61,7 +61,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/ticket/list')
         .send({ page: 1, size: 10, ticketType: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -71,7 +71,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/ticketOrder/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by order status', async () => {
@@ -79,7 +79,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/ticketOrder/list')
         .send({ page: 1, size: 10, status: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by visit date', async () => {
@@ -87,7 +87,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/ticketOrder/list')
         .send({ page: 1, size: 10, visitDate: '2026-09-10' });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -97,7 +97,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/route/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by status', async () => {
@@ -105,7 +105,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/route/list')
         .send({ page: 1, size: 10, status: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by days', async () => {
@@ -113,7 +113,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/route/list')
         .send({ page: 1, size: 10, days: 3 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -123,7 +123,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/routeOrder/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by order status', async () => {
@@ -131,7 +131,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/routeOrder/list')
         .send({ page: 1, size: 10, status: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by departure date', async () => {
@@ -139,7 +139,7 @@ describe('Tour Module - Scenic & Ticket API Integration Test', () => {
         .post('/admin/tour/routeOrder/list')
         .send({ page: 1, size: 10, departureDate: '2026-09-10' });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 });

@@ -8,6 +8,7 @@ import { MessageEntity } from '../../entity/message';
  */
 @Provide()
 @CoolController({
+  prefix: '/admin/message',
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: MessageEntity,
   service: MessageService,

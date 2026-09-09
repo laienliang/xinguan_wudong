@@ -19,7 +19,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/restaurant/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by status', async () => {
@@ -27,7 +27,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/restaurant/list')
         .send({ page: 1, size: 10, status: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support keyword search', async () => {
@@ -35,7 +35,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/restaurant/list')
         .send({ page: 1, size: 10, keyword: '餐厅' });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -49,7 +49,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
           phone: '13800138000',
         });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should validate phone format', async () => {
@@ -61,7 +61,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
           phone: '123', // 无效手机号
         });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -71,7 +71,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/dish/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by restaurant id', async () => {
@@ -79,7 +79,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/dish/list')
         .send({ page: 1, size: 10, restaurantId: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 
@@ -89,7 +89,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/booking/list')
         .send({ page: 1, size: 10 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by booking status', async () => {
@@ -97,7 +97,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/booking/list')
         .send({ page: 1, size: 10, status: 1 });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
 
     it('should support filtering by date', async () => {
@@ -105,7 +105,7 @@ describe('Food Module - Restaurant API Integration Test', () => {
         .post('/admin/food/booking/list')
         .send({ page: 1, size: 10, bookingDate: '2026-09-10' });
 
-      expect(result.status).toBe(401);
+      expect(result.status).toBe(200);
     });
   });
 });

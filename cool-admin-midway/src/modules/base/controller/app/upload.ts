@@ -6,7 +6,7 @@ import * as path from 'path';
 
 @CoolUrlTag()
 @Provide()
-@CoolController()
+@CoolController('/app/upload')
 export class BaseAppUploadController extends BaseController {
   @Inject()
   ctx: Context;
