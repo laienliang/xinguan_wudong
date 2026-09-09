@@ -7,7 +7,6 @@ import { Column, Entity, Index } from 'typeorm';
 @Entity('cart')
 @Index(['userId', 'goodsId', 'skuId'], { unique: true })
 export class CartEntity extends BaseEntity {
-  @Index()
   @Column({ comment: '用户ID', type: 'bigint' })
   userId: string;
 

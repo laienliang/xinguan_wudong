@@ -9,14 +9,12 @@ import { Column, Entity, Index } from 'typeorm';
 @Index(['parentId'])
 @Index(['userId'])
 export class CommunityCommentEntity extends BaseEntity {
-  @Index()
   @Column({ comment: '游记ID', type: 'bigint' })
   postId: string;
 
   @Column({ comment: '用户ID', type: 'bigint' })
   userId: string;
 
-  @Index()
   @Column({ comment: '父评论ID（0为一级评论）', type: 'bigint', default: 0 })
   parentId: string;
 

@@ -7,7 +7,6 @@ import { Column, Entity, Index } from 'typeorm';
 @Entity('user_favorite')
 @Index(['userId', 'targetId', 'targetType'], { unique: true })
 export class UserFavoriteEntity extends BaseEntity {
-  @Index()
   @Column({ comment: '用户ID', type: 'bigint' })
   userId: string;
 

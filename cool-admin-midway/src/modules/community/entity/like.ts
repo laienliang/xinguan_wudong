@@ -9,14 +9,12 @@ import { Column, Entity, Index } from 'typeorm';
 @Index(['userId'])
 @Index(['targetType'])
 export class CommunityLikeEntity extends BaseEntity {
-  @Index()
   @Column({ comment: '用户ID', type: 'bigint' })
   userId: string;
 
   @Column({ comment: '目标ID', type: 'bigint' })
   targetId: string;
 
-  @Index()
   @Column({ comment: '类型：1游记 2评论', type: 'tinyint' })
   targetType: number;
 }

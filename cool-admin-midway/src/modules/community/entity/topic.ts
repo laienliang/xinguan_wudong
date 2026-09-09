@@ -23,7 +23,6 @@ export class CommunityTopicEntity extends BaseEntity {
   @Column({ comment: '游记数', type: 'int', default: 0 })
   postCount: number;
 
-  @Index()
   @Column({ comment: '是否热门：0否 1是', type: 'tinyint', default: 0 })
   isHot: number;
 

@@ -7,11 +7,9 @@ import { Column, Entity, Index } from 'typeorm';
 @Entity('hotel_room_calendar')
 @Index(['roomTypeId', 'date'], { unique: true })
 export class HotelRoomCalendarEntity extends BaseEntity {
-  @Index()
   @Column({ comment: '房型ID', type: 'bigint' })
   roomTypeId: number;
 
-  @Index()
   @Column({ comment: '日期', type: 'date' })
   date: string;
 

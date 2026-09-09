@@ -7,9 +7,7 @@ import { Column, Entity, Index } from 'typeorm';
 @Entity('community_post')
 @Index(['userId'])
 @Index(['status'])
-@Index(['createTime'])
 export class CommunityPostEntity extends BaseEntity {
-  @Index()
   @Column({ comment: '用户ID', type: 'bigint' })
   userId: string;
 
