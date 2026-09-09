@@ -6,8 +6,7 @@ import { Column, Entity, Index } from 'typeorm';
  */
 @Entity('hotel_booking_order')
 export class HotelBookingOrderEntity extends BaseEntity {
-  @Index({ unique: true })
-  @Column({ comment: '关联统一订单ID', type: 'bigint' })
+  @Column({ comment: '关联统一订单ID', type: 'bigint', unique: true })
   orderId: number;
 
   @Index()

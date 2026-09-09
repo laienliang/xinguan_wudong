@@ -10,8 +10,7 @@ export class MerchantUserEntity extends BaseEntity {
   @Column({ comment: '关联用户ID', type: 'bigint' })
   userId: string;
 
-  @Index({ unique: true })
-  @Column({ comment: '商家用户名（唯一）', length: 50 })
+  @Column({ comment: '商家用户名（唯一）', length: 50, unique: true })
   username: string;
 
   @Column({ comment: '密码', length: 255 })

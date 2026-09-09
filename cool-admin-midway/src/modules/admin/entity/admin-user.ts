@@ -6,8 +6,7 @@ import { Column, Entity, Index } from 'typeorm';
  */
 @Entity('admin_user')
 export class AdminUserEntity extends BaseEntity {
-  @Index({ unique: true })
-  @Column({ comment: '用户名（唯一）', length: 50 })
+  @Column({ comment: '用户名（唯一）', length: 50, unique: true })
   username: string;
 
   @Column({ comment: '密码（bcrypt加密）', length: 255 })

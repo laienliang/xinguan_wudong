@@ -10,7 +10,6 @@ export class TourETicketEntity extends BaseEntity {
   @Column({ comment: '订单ID', type: 'bigint' })
   orderId: string;
 
-  @Index()
   @Column({ comment: '电子票号（唯一）', length: 32, unique: true })
   ticketNo: string;
 
