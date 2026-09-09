@@ -108,9 +108,9 @@ Response:
 }
 ```
 
-#### 微信APP登录
+#### 微信开放平台登录
 ```
-POST /app/user/login/wxApp
+POST /app/user/login/wx
 Content-Type: application/json
 
 {
@@ -129,18 +129,24 @@ Response:
 }
 ```
 
-#### 获取图片验证码
+#### OAuth 登录
 ```
-GET /app/user/login/captcha?width=100&height=40&color=blue
+POST /app/user/login/oauth
 Content-Type: application/json
+
+{
+  "type": "wechat",
+  "code": "oauth_code"
+}
 
 Response:
 {
   "code": 0,
   "message": "success",
   "data": {
-    "id": "captcha_id",
-    "imageBase64": "data:image/svg+xml;base64,..."
+    "token": "eyJhbGciOiJIUzI1NiIs...",
+    "refreshToken": "...",
+    "expire": 7200
   }
 }
 ```
@@ -188,7 +194,7 @@ Response:
 
 #### 获取地址列表
 ```
-GET /app/user/address
+GET /app/user/address/list?userId=<userId>
 Authorization: Bearer <token>
 
 Response:
@@ -198,25 +204,48 @@ Response:
   "data": [
     {
       "id": "1",
+      "userId": "1",
       "name": "张三",
       "phone": "13800138000",
       "province": "贵州省",
       "city": "黔东南苗族侗族自治州",
       "district": "雷山县",
       "detail": "乌东村123号",
-      "isDefault": 1
+      "isDefault": 1,
+      "createTime": "2024-01-01 12:00:00"
     }
   ]
 }
 ```
 
+#### 分页查询地址
+```
+GET /app/user/address/page?userId=<userId>&page=1&size=10
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "list": [...],
+    "pagination": {
+      "page": 1,
+      "size": 10,
+      "total": 100
+    }
+  }
+}
+```
+
 #### 创建地址
 ```
-POST /app/user/address
+POST /app/user/address/add
 Authorization: Bearer <token>
 Content-Type: application/json
 
 {
+  "userId": "1",
   "name": "张三",
   "phone": "13800138000",
   "province": "贵州省",
@@ -229,20 +258,18 @@ Content-Type: application/json
 Response:
 {
   "code": 0,
-  "message": "success",
-  "data": {
-    "id": "1"
-  }
+  "message": "success"
 }
 ```
 
 #### 更新地址
 ```
-PUT /app/user/address/:id
+POST /app/user/address/update
 Authorization: Bearer <token>
 Content-Type: application/json
 
 {
+  "id": "1",
   "name": "张三",
   "phone": "13800138000",
   "province": "贵州省",
@@ -260,13 +287,41 @@ Response:
 
 #### 删除地址
 ```
-DELETE /app/user/address/:id
+POST /app/user/address/delete
 Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "ids": ["1", "2"]
+}
 
 Response:
 {
   "code": 0,
   "message": "success"
+}
+```
+
+#### 获取地址详情
+```
+GET /app/user/address/info?id=1
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "id": "1",
+    "userId": "1",
+    "name": "张三",
+    "phone": "13800138000",
+    "province": "贵州省",
+    "city": "黔东南苗族侗族自治州",
+    "district": "雷山县",
+    "detail": "乌东村123号",
+    "isDefault": 1
+  }
 }
 ```
 
@@ -286,12 +341,13 @@ Response:
 
 #### 添加收藏
 ```
-POST /app/user/favorite/
+POST /app/user/favorite/add
 Authorization: Bearer <token>
 Content-Type: application/json
 
 {
-  "targetId": "1",
+  "userId": "1",
+  "targetId": "100",
   "targetType": 1
 }
 
@@ -304,233 +360,7 @@ Response:
 
 #### 取消收藏
 ```
-DELETE /app/user/favorite/
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "targetId": "1",
-  "targetType": 1
-}
-
-Response:
-{
-  "code": 0,
-  "message": "success"
-}
-```
-
-#### 收藏列表
-```
-GET /app/user/favorite/?targetType=1
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": [
-    {
-      "id": "1",
-      "targetId": "1",
-      "targetType": 1,
-      "createTime": "2026-09-08T10:00:00Z"
-    }
-  ]
-}
-```
-
-#### 检查收藏状态
-```
-GET /app/user/favorite/check?targetId=1&targetType=1
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": {
-    "isFavorite": true
-  }
-}
-```
-
-## 订单模块
-
-### 创建订单
-```
-POST /app/order
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "type": 1,
-  "totalAmount": 299.00,
-  "payAmount": 299.00,
-  "remark": "备注"
-}
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": {
-    "id": "1",
-    "orderNo": "1725778800000123456",
-    "status": 1
-  }
-}
-```
-
-### 订单列表
-```
-GET /app/order?page=1&pageSize=10&status=1&type=1
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": {
-    "list": [...],
-    "total": 10
-  }
-}
-```
-
-### 订单详情
-```
-GET /app/order/:orderNo
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": {
-    "id": "1",
-    "orderNo": "1725778800000123456",
-    "type": 1,
-    "status": 1,
-    "totalAmount": 299.00,
-    "payAmount": 299.00,
-    "remark": "备注",
-    "createTime": "2026-09-08T10:00:00Z"
-  }
-}
-```
-
-### 取消订单
-```
-PUT /app/order/:orderNo/cancel
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success"
-}
-```
-
-## 购物车模块
-
-### 加入购物车
-```
-POST /app/cart
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "goodsId": "1",
-  "goodsType": 1,
-  "skuId": "1",
-  "quantity": 2
-}
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": {
-    "id": "1"
-  }
-}
-```
-
-### 购物车列表
-```
-GET /app/cart
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": [
-    {
-      "id": "1",
-      "goodsId": "1",
-      "goodsType": 1,
-      "quantity": 2,
-      "selected": 1
-    }
-  ]
-}
-```
-
-### 获取已选中商品
-```
-GET /app/cart/selected
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success",
-  "data": [
-    {
-      "id": "1",
-      "goodsId": "1",
-      "goodsType": 1,
-      "quantity": 2,
-      "selected": 1
-    }
-  ]
-}
-```
-
-### 更新商品数量
-```
-PUT /app/cart/:id
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "quantity": 3
-}
-
-Response:
-{
-  "code": 0,
-  "message": "success"
-}
-```
-
-### 切换选中状态
-```
-PUT /app/cart/:id/toggle
-Authorization: Bearer <token>
-
-Response:
-{
-  "code": 0,
-  "message": "success"
-}
-```
-
-### 删除购物车商品
-```
-DELETE /app/cart
+POST /app/user/favorite/delete
 Authorization: Bearer <token>
 Content-Type: application/json
 
@@ -545,7 +375,353 @@ Response:
 }
 ```
 
-### 清空购物车
+#### 收藏列表
+```
+GET /app/user/favorite/list?userId=<userId>&targetType=1
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": [
+    {
+      "id": "1",
+      "userId": "1",
+      "targetId": "100",
+      "targetType": 1,
+      "createTime": "2024-01-01 12:00:00"
+    }
+  ]
+}
+```
+
+#### 分页查询收藏
+```
+GET /app/user/favorite/page?userId=<userId>&targetType=1&page=1&size=10
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "list": [...],
+    "pagination": {
+      "page": 1,
+      "size": 10,
+      "total": 50
+    }
+  }
+}
+```
+
+#### 检查是否已收藏
+```
+GET /app/user/favorite/check?targetId=100&targetType=1
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "isFavorite": true
+  }
+}
+```
+
+## 订单模块
+
+#### 创建订单
+```
+POST /app/order/add
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "userId": "1",
+  "type": 1,
+  "totalAmount": 100.00,
+  "payAmount": 95.00,
+  "remark": "请尽快发货"
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 订单列表
+```
+GET /app/order/list?userId=<userId>&status=1&type=1
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": [
+    {
+      "id": "1",
+      "orderNo": "1704096000000123456",
+      "userId": "1",
+      "type": 1,
+      "status": 1,
+      "totalAmount": 100.00,
+      "payAmount": 95.00,
+      "createTime": "2024-01-01 12:00:00"
+    }
+  ]
+}
+```
+
+#### 分页查询订单
+```
+GET /app/order/page?userId=<userId>&status=1&page=1&size=10
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "list": [...],
+    "pagination": {
+      "page": 1,
+      "size": 10,
+      "total": 100
+    }
+  }
+}
+```
+
+#### 订单详情（按 ID）
+```
+GET /app/order/info?id=1
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "id": "1",
+    "orderNo": "1704096000000123456",
+    "userId": "1",
+    "type": 1,
+    "status": 1,
+    "totalAmount": 100.00,
+    "payAmount": 95.00,
+    "remark": "请尽快发货",
+    "createTime": "2024-01-01 12:00:00"
+  }
+}
+```
+
+#### 订单详情（按订单号）
+```
+GET /app/order/:orderNo/detail
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "id": "1",
+    "orderNo": "1704096000000123456",
+    "userId": "1",
+    "type": 1,
+    "status": 1,
+    "totalAmount": 100.00,
+    "payAmount": 95.00,
+    "createTime": "2024-01-01 12:00:00"
+  }
+}
+```
+
+#### 取消订单
+```
+PUT /app/order/:orderNo/cancel
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 更新订单
+```
+POST /app/order/update
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "id": "1",
+  "remark": "修改备注"
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 删除订单
+```
+POST /app/order/delete
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "ids": ["1", "2"]
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+## 购物车模块
+
+#### 加入购物车
+```
+POST /app/cart/add
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "userId": "1",
+  "goodsId": "100",
+  "skuId": "200",
+  "quantity": 2,
+  "price": 50.00
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 购物车列表
+```
+GET /app/cart/list?userId=<userId>
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": [
+    {
+      "id": "1",
+      "userId": "1",
+      "goodsId": "100",
+      "skuId": "200",
+      "quantity": 2,
+      "price": 50.00,
+      "selected": 1,
+      "createTime": "2024-01-01 12:00:00"
+    }
+  ]
+}
+```
+
+#### 分页查询购物车
+```
+GET /app/cart/page?userId=<userId>&page=1&size=10
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "list": [...],
+    "pagination": {
+      "page": 1,
+      "size": 10,
+      "total": 20
+    }
+  }
+}
+```
+
+#### 更新购物车（数量）
+```
+POST /app/cart/update
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "id": "1",
+  "quantity": 3
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 更新数量（专用接口）
+```
+PUT /app/cart/:id/quantity
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "quantity": 3
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 切换选中状态
+```
+PUT /app/cart/:id/toggle
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 删除购物车项
+```
+POST /app/cart/delete
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "ids": ["1", "2"]
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+#### 清空购物车
 ```
 DELETE /app/cart/clear
 Authorization: Bearer <token>
@@ -557,11 +733,32 @@ Response:
 }
 ```
 
-## 消息模块
-
-### 消息列表
+#### 获取已选中商品
 ```
-GET /app/message?page=1&pageSize=10
+GET /app/cart/selected
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": [
+    {
+      "id": "1",
+      "userId": "1",
+      "goodsId": "100",
+      "skuId": "200",
+      "quantity": 2,
+      "price": 50.00,
+      "selected": 1
+    }
+  ]
+}
+```
+
+#### 获取购物车详情
+```
+GET /app/cart/info?id=1
 Authorization: Bearer <token>
 
 Response:
@@ -569,22 +766,84 @@ Response:
   "code": 0,
   "message": "success",
   "data": {
-    "list": [
-      {
-        "id": "1",
-        "title": "系统通知",
-        "content": "欢迎使用乌东文旅平台",
-        "isRead": 0,
-        "createTime": "2026-09-08T10:00:00Z"
-      }
-    ],
-    "total": 5,
-    "unreadCount": 2
+    "id": "1",
+    "userId": "1",
+    "goodsId": "100",
+    "skuId": "200",
+    "quantity": 2,
+    "price": 50.00,
+    "selected": 1
   }
 }
 ```
 
-### 未读消息数
+## 消息模块
+
+#### 消息列表
+```
+GET /app/message/list?type=1
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": [
+    {
+      "id": "1",
+      "userId": "1",
+      "type": 1,
+      "title": "系统通知",
+      "content": "欢迎使用乌东文旅平台",
+      "isRead": 0,
+      "createTime": "2024-01-01 12:00:00"
+    }
+  ]
+}
+```
+
+#### 分页查询消息
+```
+GET /app/message/page?type=1&page=1&size=10
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "list": [...],
+    "pagination": {
+      "page": 1,
+      "size": 10,
+      "total": 50
+    }
+  }
+}
+```
+
+#### 获取消息详情
+```
+GET /app/message/info?id=1
+Authorization: Bearer <token>
+
+Response:
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "id": "1",
+    "userId": "1",
+    "type": 1,
+    "title": "系统通知",
+    "content": "欢迎使用乌东文旅平台",
+    "isRead": 0,
+    "createTime": "2024-01-01 12:00:00"
+  }
+}
+```
+
+#### 未读消息数
 ```
 GET /app/message/unread-count
 Authorization: Bearer <token>
@@ -593,11 +852,11 @@ Response:
 {
   "code": 0,
   "message": "success",
-  "data": 2
+  "data": 5
 }
 ```
 
-### 标记已读
+#### 标记已读
 ```
 PUT /app/message/read
 Authorization: Bearer <token>
@@ -614,7 +873,7 @@ Response:
 }
 ```
 
-### 全部标记已读
+#### 全部标记已读
 ```
 PUT /app/message/read-all
 Authorization: Bearer <token>
@@ -626,64 +885,148 @@ Response:
 }
 ```
 
-## 文件上传
+#### 删除消息
+```
+POST /app/message/delete
+Authorization: Bearer <token>
+Content-Type: application/json
 
-### 上传图片
+{
+  "ids": ["1", "2"]
+}
+
+Response:
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+## 文件上传模块
+
+#### 上传图片
 ```
 POST /app/upload/image
 Authorization: Bearer <token>
 Content-Type: multipart/form-data
 
-file: <图片文件>
+file: <image file>
+businessType: 1
 
 Response:
 {
   "code": 0,
   "message": "success",
   "data": {
-    "url": "/uploads/images/1725778800000-abc123.jpg"
+    "url": "https://example.com/uploads/xxx.jpg",
+    "fileSize": 102400,
+    "fileType": 1
   }
-}
-
-错误响应:
-{
-  "code": 3001,
-  "message": "仅支持 jpg/png/gif/webp 格式图片"
-}
-
-{
-  "code": 3002,
-  "message": "图片大小不能超过 5MB"
 }
 ```
 
-### 上传视频
+#### 上传视频
 ```
 POST /app/upload/video
 Authorization: Bearer <token>
 Content-Type: multipart/form-data
 
-file: <视频文件>
+file: <video file>
+businessType: 1
 
 Response:
 {
   "code": 0,
   "message": "success",
   "data": {
-    "url": "/uploads/videos/1725778800000-xyz789.mp4"
+    "url": "https://example.com/uploads/xxx.mp4",
+    "fileSize": 10485760,
+    "fileType": 2
   }
-}
-
-错误响应:
-{
-  "code": 3003,
-  "message": "仅支持 mp4/mov/avi 格式视频"
-}
-
-{
-  "code": 3004,
-  "message": "视频大小不能超过 50MB"
 }
 ```
 
-更多接口详情请访问 Swagger 文档：http://localhost:8001/swagger-ui/index.html
+### 错误响应示例
+
+#### 文件类型不支持
+```
+Response:
+{
+  "code": 3001,
+  "message": "不支持的文件类型"
+}
+```
+
+#### 文件大小超限
+```
+Response:
+{
+  "code": 3002,
+  "message": "文件大小超过限制"
+}
+```
+
+#### 上传失败
+```
+Response:
+{
+  "code": 3003,
+  "message": "文件上传失败"
+}
+```
+
+## 数据字典
+
+### 订单类型 (type)
+- 1: 商品订单
+- 2: 餐位订单
+- 3: 住宿订单
+- 4: 门票订单
+- 5: 线路订单
+
+### 订单状态 (status)
+- 1: 待支付
+- 2: 已支付
+- 3: 已取消
+- 4: 已完成
+- 5: 已退款
+
+### 收藏类型 (targetType)
+- 1: 商品
+- 2: 餐饮
+- 3: 住宿
+- 4: 景点
+- 5: 线路
+
+### 购物车商品类型 (itemType)
+- 1: 商品
+- 2: 餐位
+- 3: 住宿套餐
+
+### 消息类型 (type)
+- 1: 系统通知
+- 2: 订单消息
+- 3: 活动推送
+
+### 文件类型 (fileType)
+- 1: 图片
+- 2: 视频
+- 3: 文档
+
+### 业务类型 (businessType)
+- 1: 商品
+- 2: 餐饮
+- 3: 住宿
+- 4: 游记
+- 5: 评论
+
+## 注意事项
+
+1. 所有接口都需要在 Header 中携带 JWT Token（登录接口除外）
+2. 分页参数：`page`（页码，从1开始）、`size`（每页数量，默认10）
+3. 批量删除使用 `POST /xxx/delete`，body 传 `{ids: ["1", "2"]}`
+4. 列表查询使用 `GET /xxx/list`，支持筛选参数
+5. 分页查询使用 `GET /xxx/page`，返回 `{list, pagination}`
+6. 新增使用 `POST /xxx/add`
+7. 更新使用 `POST /xxx/update`，body 必须包含 `id` 字段
+8. 详情查询使用 `GET /xxx/info?id=xxx`
