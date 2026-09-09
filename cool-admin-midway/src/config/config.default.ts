@@ -66,6 +66,13 @@ export default {
   cool: {
     // 已经插件化，本地文件上传查看 plugin/config.ts，其他云存储查看对应插件的使用
     file: {},
+    // 判断是否初始化的方式
+    initJudge: 'db',
+    // 启用多租户
+    multTenant: {
+      enable: true,
+      mode: 'simple', // 简单模式：共享数据库，通过 tenantId 隔离
+    },
     // 是否开启多租户
     tenant: {
       // 是否开启多租户
@@ -86,6 +93,8 @@ export default {
       upsert: 'save',
       // 软删除
       softDelete: true,
+      // 分页查询每页条数
+      pageSize: 20,
     },
-  } as CoolConfig,
+  } as unknown as CoolConfig,
 } as MidwayConfig;
