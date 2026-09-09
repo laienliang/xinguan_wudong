@@ -20,21 +20,21 @@ export class AppUserFavoriteController extends BaseController {
   @Inject()
   userFavoriteService: UserFavoriteService;
 
-  @Post('/add', { summary: '添加收藏' })
+  @Post('/', { summary: '添加收藏' })
   async addFavorite(@Body() body: { targetId: string; targetType: number }) {
     const userId = this.ctx.user.id;
     await this.userFavoriteService.add(userId, body.targetId, body.targetType);
     return this.ok();
   }
 
-  @Del('/remove', { summary: '取消收藏' })
+  @Del('/', { summary: '取消收藏' })
   async removeFavorite(@Body() body: { targetId: string; targetType: number }) {
     const userId = this.ctx.user.id;
     await this.userFavoriteService.remove(userId, body.targetId, body.targetType);
     return this.ok();
   }
 
-  @Get('/list', { summary: '收藏列表' })
+  @Get('/', { summary: '收藏列表' })
   async listFavorites(@Query('targetType') targetType?: number) {
     const userId = this.ctx.user.id;
     const data = await this.userFavoriteService.list(userId, targetType);
