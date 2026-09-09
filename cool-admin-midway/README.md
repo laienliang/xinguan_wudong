@@ -194,3 +194,68 @@ export class DemoAppGoodsController extends BaseController {
 ### 低价服务器
 
 [阿里云、腾讯云、华为云低价云服务器，不限新老](https://cool-js.com/service/cloud)
+
+## 乌东文旅平台 - 公共基础模块
+
+### 已实现功能
+
+#### 用户模块
+- ✅ 用户注册/登录（Cool Admin 内置）
+- ✅ 收货地址管理（增删改查、设置默认）
+- ✅ 收藏功能（添加、取消、列表查询）
+
+#### 订单模块
+- ✅ 统一订单中心
+- ✅ 订单创建、查询、取消
+- ✅ 订单状态流转
+- ✅ 订单列表筛选（按类型、状态）
+
+#### 购物车模块
+- ✅ 加入购物车
+- ✅ 更新数量
+- ✅ 选中/取消选中
+- ✅ 删除商品
+- ✅ 清空购物车
+
+#### 消息模块
+- ✅ 消息推送（单发、群发）
+- ✅ 消息列表查询
+- ✅ 标记已读
+- ✅ 未读消息数统计
+
+#### 文件上传
+- ✅ 图片上传（支持 jpg/png/gif/webp，限制 5MB）
+- ✅ 视频上传（支持 mp4/mov/avi，限制 50MB）
+
+#### 多租户
+- ✅ 启用 Cool Admin 多租户配置
+- ✅ 为后续多商家数据隔离做准备
+
+### API 文档
+
+启动服务后访问：http://localhost:7001/swagger-ui/index.html
+
+### 测试
+
+```bash
+# 运行所有测试
+npm test
+
+# 运行特定模块测试
+npm test -- test/user/
+npm test -- test/order/
+npm test -- test/cart/
+npm test -- test/message/
+
+# 运行集成测试
+npm test -- test/integration/
+```
+
+### 下一步
+
+公共基础模块已完成，可以开始业务模块开发：
+- 衣-非遗商品模块
+- 食-餐饮美食模块
+- 住-住宿预订模块
+- 行-线路订票模块
+- 社区-照片分享模块
