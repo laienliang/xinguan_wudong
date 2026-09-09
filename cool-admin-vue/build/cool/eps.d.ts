@@ -62,6 +62,20 @@ declare namespace Eps {
 		[key: string]: any;
 	}
 
+	interface MessageEntity {
+		/**
+		 * 任意键值
+		 */
+		[key: string]: any;
+	}
+
+	interface OrderEntity {
+		/**
+		 * 任意键值
+		 */
+		[key: string]: any;
+	}
+
 	interface PluginInfoEntity {
 		/**
 		 * 任意键值
@@ -91,6 +105,13 @@ declare namespace Eps {
 	}
 
 	interface TaskInfoEntity {
+		/**
+		 * 任意键值
+		 */
+		[key: string]: any;
+	}
+
+	interface UserAddressEntity {
 		/**
 		 * 任意键值
 		 */
@@ -184,9 +205,24 @@ declare namespace Eps {
 		list: TaskInfoEntity[];
 	}
 
+	interface UserAddressPageResponse {
+		pagination: PagePagination;
+		list: UserAddressEntity[];
+	}
+
 	interface UserInfoPageResponse {
 		pagination: PagePagination;
 		list: UserInfoEntity[];
+	}
+
+	interface MessageMessagePageResponse {
+		pagination: PagePagination;
+		list: MessageEntity[];
+	}
+
+	interface OrderOrderPageResponse {
+		pagination: PagePagination;
+		list: OrderEntity[];
 	}
 
 	interface BaseCoding {
@@ -1183,19 +1219,58 @@ declare namespace Eps {
 
 	interface UserAddress {
 		/**
+		 * delete
+		 */
+		delete(data?: any): Promise<any>;
+
+		/**
+		 * update
+		 */
+		update(data?: any): Promise<any>;
+
+		/**
+		 * info
+		 */
+		info(data?: any): Promise<UserAddressEntity>;
+
+		/**
 		 * list
 		 */
-		list(data?: any): Promise<any[]>;
+		list(data?: any): Promise<UserAddressEntity[]>;
+
+		/**
+		 * page
+		 */
+		page(data?: any): Promise<UserAddressPageResponse>;
+
+		/**
+		 * add
+		 */
+		add(data?: any): Promise<any>;
 
 		/**
 		 * 权限标识
 		 */
-		permission: { list: string };
+		permission: {
+			delete: string;
+			update: string;
+			info: string;
+			list: string;
+			page: string;
+			add: string;
+		};
 
 		/**
 		 * 权限状态
 		 */
-		_permission: { list: boolean };
+		_permission: {
+			delete: boolean;
+			update: boolean;
+			info: boolean;
+			list: boolean;
+			page: boolean;
+			add: boolean;
+		};
 
 		request: Request;
 	}
@@ -1258,6 +1333,143 @@ declare namespace Eps {
 		request: Request;
 	}
 
+	interface MessageMessage {
+		/**
+		 * sendtoall
+		 */
+		sendtoall(data?: any): Promise<any>;
+
+		/**
+		 * delete
+		 */
+		delete(data?: any): Promise<any>;
+
+		/**
+		 * update
+		 */
+		update(data?: any): Promise<any>;
+
+		/**
+		 * send
+		 */
+		send(data?: any): Promise<any>;
+
+		/**
+		 * info
+		 */
+		info(data?: any): Promise<MessageEntity>;
+
+		/**
+		 * list
+		 */
+		list(data?: any): Promise<MessageEntity[]>;
+
+		/**
+		 * page
+		 */
+		page(data?: any): Promise<MessageMessagePageResponse>;
+
+		/**
+		 * add
+		 */
+		add(data?: any): Promise<any>;
+
+		/**
+		 * 权限标识
+		 */
+		permission: {
+			sendtoall: string;
+			delete: string;
+			update: string;
+			send: string;
+			info: string;
+			list: string;
+			page: string;
+			add: string;
+		};
+
+		/**
+		 * 权限状态
+		 */
+		_permission: {
+			sendtoall: boolean;
+			delete: boolean;
+			update: boolean;
+			send: boolean;
+			info: boolean;
+			list: boolean;
+			page: boolean;
+			add: boolean;
+		};
+
+		request: Request;
+	}
+
+	interface OrderOrder {
+		/**
+		 * delete
+		 */
+		delete(data?: any): Promise<any>;
+
+		/**
+		 * update
+		 */
+		update(data?: any): Promise<any>;
+
+		/**
+		 * info
+		 */
+		info(data?: any): Promise<OrderEntity>;
+
+		/**
+		 * list
+		 */
+		list(data?: any): Promise<OrderEntity[]>;
+
+		/**
+		 * page
+		 */
+		page(data?: any): Promise<OrderOrderPageResponse>;
+
+		/**
+		 * add
+		 */
+		add(data?: any): Promise<any>;
+
+		/**
+		 * detail
+		 */
+		detail(data?: any): Promise<any>;
+
+		/**
+		 * 权限标识
+		 */
+		permission: {
+			delete: string;
+			update: string;
+			info: string;
+			list: string;
+			page: string;
+			add: string;
+			detail: string;
+		};
+
+		/**
+		 * 权限状态
+		 */
+		_permission: {
+			delete: boolean;
+			update: boolean;
+			info: boolean;
+			list: boolean;
+			page: boolean;
+			add: boolean;
+			detail: boolean;
+		};
+
+		request: Request;
+	}
+
 	interface RequestOptions {
 		url: string;
 		method?: "OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT";
@@ -1293,5 +1505,7 @@ declare namespace Eps {
 		space: { info: SpaceInfo; type: SpaceType };
 		task: { info: TaskInfo };
 		user: { address: UserAddress; info: UserInfo };
+		message: { message: MessageMessage };
+		order: { order: OrderOrder };
 	};
 }
