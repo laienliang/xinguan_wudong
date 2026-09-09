@@ -1,13 +1,19 @@
-import { Provide, Inject } from '@midwayjs/core';
+import { Provide, Config } from '@midwayjs/core';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository, In } from 'typeorm';
 import { MessageEntity } from '../entity/message';
 import { BaseService } from '@cool-midway/core';
 
+/**
+ * 消息服务
+ */
 @Provide()
 export class MessageService extends BaseService {
   @InjectEntityModel(MessageEntity)
   messageEntity: Repository<MessageEntity>;
+
+  @Config('typeorm.dataSource.default.type')
+  ormType: string;
 
   /**
    * 发送消息给指定用户
@@ -31,37 +37,6 @@ export class MessageService extends BaseService {
   }
 
   /**
-   * 消息列表（分页）
-   */
-  async list(userId: string, query: any): Promise<{ list: MessageEntity[], total: number, unreadCount: number }> {
-    const { page = 1, pageSize = 10, type } = query;
-
-    // 查询条件：发给当前用户的消息 或 群发消息
-    const where: any = [
-      { userId },
-      { userId: '0' },
-    ];
-
-    if (type) {
-      where.forEach(w => w.type = type);
-    }
-
-    const [list, total] = await this.messageEntity.findAndCount({
-      where,
-      order: { createTime: 'DESC' },
-      skip: (page - 1) * pageSize,
-      take: pageSize,
-    });
-
-    // 未读消息数
-    const unreadCount = await this.messageEntity.count({
-      where: [...where].map(w => ({ ...w, isRead: 0 })),
-    });
-
-    return { list, total, unreadCount };
-  }
-
-  /**
    * 标记已读
    */
   async markAsRead(ids: string[]): Promise<void> {
@@ -72,7 +47,6 @@ export class MessageService extends BaseService {
    * 全部标记已读
    */
   async markAllAsRead(userId: string): Promise<void> {
-    // 更新当前用户的未读消息
     await this.messageEntity
       .createQueryBuilder()
       .update(MessageEntity)
@@ -82,13 +56,6 @@ export class MessageService extends BaseService {
         broadcast: '0'
       })
       .execute();
-  }
-
-  /**
-   * 删除消息
-   */
-  async delete(ids: string[]): Promise<void> {
-    await this.messageEntity.delete({ id: In(ids) });
   }
 
   /**

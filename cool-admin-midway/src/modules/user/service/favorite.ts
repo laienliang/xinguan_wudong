@@ -1,54 +1,33 @@
-import { Provide, Inject } from '@midwayjs/core';
+import { Provide, Config } from '@midwayjs/core';
+import { BaseService } from '@cool-midway/core';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserFavoriteEntity } from '../entity/favorite';
 
+/**
+ * 用户收藏服务
+ */
 @Provide()
-export class UserFavoriteService {
+export class UserFavoriteService extends BaseService {
   @InjectEntityModel(UserFavoriteEntity)
   userFavoriteEntity: Repository<UserFavoriteEntity>;
 
-  /**
-   * 添加收藏
-   */
-  async add(userId: string, targetId: string, targetType: number): Promise<void> {
-    // 检查是否已收藏
-    const exists = await this.userFavoriteEntity.findOne({
-      where: { userId, targetId, targetType },
-    });
+  @Config('typeorm.dataSource.default.type')
+  ormType: string;
 
-    if (exists) {
-      return; // 已收藏，直接返回
+  /**
+   * 新增前检查是否已收藏
+   */
+  async modifyBefore(data: any, type: 'delete' | 'update' | 'add') {
+    if (type === 'add') {
+      const { userId, targetId, targetType } = data;
+      const exists = await this.userFavoriteEntity.findOne({
+        where: { userId, targetId, targetType },
+      });
+      if (exists) {
+        throw new Error('已收藏该内容');
+      }
     }
-
-    const favorite = new UserFavoriteEntity();
-    favorite.userId = userId;
-    favorite.targetId = targetId;
-    favorite.targetType = targetType;
-
-    await this.userFavoriteEntity.save(favorite);
-  }
-
-  /**
-   * 取消收藏
-   */
-  async remove(userId: string, targetId: string, targetType: number): Promise<void> {
-    await this.userFavoriteEntity.delete({ userId, targetId, targetType });
-  }
-
-  /**
-   * 收藏列表
-   */
-  async list(userId: string, targetType?: number): Promise<UserFavoriteEntity[]> {
-    const where: any = { userId };
-    if (targetType) {
-      where.targetType = targetType;
-    }
-
-    return await this.userFavoriteEntity.find({
-      where,
-      order: { createTime: 'DESC' },
-    });
   }
 
   /**

@@ -1,47 +1,40 @@
-import { Provide, Inject } from '@midwayjs/core';
+import { Provide, Config } from '@midwayjs/core';
 import { InjectEntityModel } from '@midwayjs/typeorm';
-import { Repository, In } from 'typeorm';
+import { Repository } from 'typeorm';
 import { CartEntity } from '../entity/cart';
 import { BaseService } from '@cool-midway/core';
 
+/**
+ * 购物车服务
+ */
 @Provide()
 export class CartService extends BaseService {
   @InjectEntityModel(CartEntity)
   cartEntity: Repository<CartEntity>;
 
-  /**
-   * 加入购物车
-   */
-  async add(dto: any): Promise<CartEntity> {
-    // 检查是否已存在
-    const existing = await this.cartEntity.findOne({
-      where: {
-        userId: dto.userId,
-        goodsId: dto.goodsId,
-        skuId: dto.skuId || null,
-      },
-    });
+  @Config('typeorm.dataSource.default.type')
+  ormType: string;
 
-    if (existing) {
-      // 已存在，累加数量
-      existing.quantity += dto.quantity || 1;
-      return await this.cartEntity.save(existing);
+  /**
+   * 新增前检查是否已存在，存在则累加数量
+   */
+  async modifyBefore(data: any, type: 'delete' | 'update' | 'add') {
+    if (type === 'add') {
+      const existing = await this.cartEntity.findOne({
+        where: {
+          userId: data.userId,
+          goodsId: data.goodsId,
+          skuId: data.skuId || null,
+        },
+      });
+
+      if (existing) {
+        // 已存在，累加数量
+        existing.quantity += data.quantity || 1;
+        await this.cartEntity.save(existing);
+        throw new Error('CART_ALREADY_EXISTS'); // 阻止继续执行 add
+      }
     }
-
-    // 新增
-    const cart = new CartEntity();
-    Object.assign(cart, dto);
-    return await this.cartEntity.save(cart);
-  }
-
-  /**
-   * 购物车列表
-   */
-  async list(userId: string): Promise<CartEntity[]> {
-    return await this.cartEntity.find({
-      where: { userId },
-      order: { createTime: 'DESC' },
-    });
   }
 
   /**
@@ -63,13 +56,6 @@ export class CartService extends BaseService {
       cart.selected = cart.selected === 1 ? 0 : 1;
       await this.cartEntity.save(cart);
     }
-  }
-
-  /**
-   * 删除购物车项
-   */
-  async remove(ids: string[]): Promise<void> {
-    await this.cartEntity.delete({ id: In(ids) });
   }
 
   /**

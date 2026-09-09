@@ -1,53 +1,33 @@
-import { Provide } from '@midwayjs/core';
+import { Provide, Config } from '@midwayjs/core';
+import { BaseService } from '@cool-midway/core';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserAddressEntity } from '../entity/address';
 
+/**
+ * 用户收货地址服务
+ */
 @Provide()
-export class UserAddressService {
+export class UserAddressService extends BaseService {
   @InjectEntityModel(UserAddressEntity)
   userAddressEntity: Repository<UserAddressEntity>;
 
-  /**
-   * 获取用户地址列表
-   */
-  async list(userId: string): Promise<UserAddressEntity[]> {
-    return await this.userAddressEntity.find({
-      where: { userId },
-      order: { isDefault: 'DESC', createTime: 'DESC' },
-    });
-  }
+  @Config('typeorm.dataSource.default.type')
+  ormType: string;
 
   /**
-   * 创建地址
+   * 新增地址前检查是否是第一个地址
    */
-  async create(dto: any): Promise<UserAddressEntity> {
-    const address = new UserAddressEntity();
-    Object.assign(address, dto);
-
-    // 如果是第一个地址，自动设为默认
-    const count = await this.userAddressEntity.count({
-      where: { userId: dto.userId },
-    });
-    if (count === 0) {
-      address.isDefault = 1;
+  async modifyBefore(data: any, type: 'delete' | 'update' | 'add') {
+    if (type === 'add') {
+      // 如果是第一个地址，自动设为默认
+      const count = await this.userAddressEntity.count({
+        where: { userId: data.userId },
+      });
+      if (count === 0) {
+        data.isDefault = 1;
+      }
     }
-
-    return await this.userAddressEntity.save(address);
-  }
-
-  /**
-   * 更新地址
-   */
-  async updateAddress(id: string, dto: any): Promise<void> {
-    await this.userAddressEntity.update(id, dto);
-  }
-
-  /**
-   * 删除地址
-   */
-  async deleteAddress(id: string): Promise<void> {
-    await this.userAddressEntity.delete(id);
   }
 
   /**

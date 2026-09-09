@@ -1,13 +1,19 @@
-import { Provide, Inject } from '@midwayjs/core';
+import { Provide, Config } from '@midwayjs/core';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository } from 'typeorm';
 import { OrderEntity } from '../entity/order';
 import { BaseService } from '@cool-midway/core';
 
+/**
+ * 订单服务
+ */
 @Provide()
 export class OrderService extends BaseService {
   @InjectEntityModel(OrderEntity)
   orderEntity: Repository<OrderEntity>;
+
+  @Config('typeorm.dataSource.default.type')
+  ormType: string;
 
   /**
    * 生成订单号
@@ -20,43 +26,17 @@ export class OrderService extends BaseService {
   }
 
   /**
-   * 创建订单
+   * 新增订单前自动生成订单号
    */
-  async create(dto: any): Promise<OrderEntity> {
-    const order = new OrderEntity();
-    order.orderNo = this.generateOrderNo();
-    order.userId = dto.userId;
-    order.type = dto.type;
-    order.totalAmount = dto.totalAmount;
-    order.payAmount = dto.payAmount;
-    order.remark = dto.remark;
-    order.status = 1; // 待支付
-
-    return await this.orderEntity.save(order);
+  async modifyBefore(data: any, type: 'delete' | 'update' | 'add') {
+    if (type === 'add') {
+      data.orderNo = this.generateOrderNo();
+      data.status = 1; // 待支付
+    }
   }
 
   /**
-   * 订单列表（分页）
-   */
-  async list(userId: string, query: any): Promise<{ list: OrderEntity[], total: number }> {
-    const { page = 1, pageSize = 10, status, type } = query;
-
-    const where: any = { userId };
-    if (status) where.status = status;
-    if (type) where.type = type;
-
-    const [list, total] = await this.orderEntity.findAndCount({
-      where,
-      order: { createTime: 'DESC' },
-      skip: (page - 1) * pageSize,
-      take: pageSize,
-    });
-
-    return { list, total };
-  }
-
-  /**
-   * 订单详情
+   * 订单详情（按订单号）
    */
   async detail(orderNo: string): Promise<OrderEntity> {
     return await this.orderEntity.findOne({
