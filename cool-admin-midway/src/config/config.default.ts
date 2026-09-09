@@ -30,6 +30,10 @@ export default {
         prefix: '/upload',
         dir: pUploadPath(),
       },
+      uploads: {
+        prefix: '/uploads',
+        dir: path.join(__dirname, '..', '..', 'uploads'),
+      },
     },
   },
   // 文件上传
