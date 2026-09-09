@@ -1,20 +1,50 @@
-import { Body, Controller, Post, Inject } from '@midwayjs/core';
+import { Provide, Inject, Post, Body } from '@midwayjs/core';
+import { CoolController, BaseController } from '@cool-midway/core';
 import { MessageService } from '../../service/message';
+import { MessageEntity } from '../../entity/message';
 
-@Controller('/admin/message')
-export class AdminMessageController {
+/**
+ * 消息管理（后台）
+ */
+@Provide()
+@CoolController({
+  api: ['add', 'delete', 'update', 'info', 'list', 'page'],
+  entity: MessageEntity,
+  service: MessageService,
+  listQueryOp: {
+    fieldEq: ['userId', 'type', 'isRead'],
+    keyWordLikeFields: ['title', 'content'],
+    addOrderBy: {
+      createTime: 'DESC',
+    },
+  },
+  pageQueryOp: {
+    fieldEq: ['userId', 'type', 'isRead'],
+    keyWordLikeFields: ['title', 'content'],
+    addOrderBy: {
+      createTime: 'DESC',
+    },
+  },
+})
+export class AdminMessageController extends BaseController {
   @Inject()
   messageService: MessageService;
 
+  /**
+   * 发送消息给指定用户
+   */
   @Post('/send', { summary: '发送消息给指定用户' })
   async send(@Body() body: any) {
     await this.messageService.send(body);
-    return { code: 0, message: 'success' };
+    return this.ok();
   }
 
+  /**
+   * 群发消息
+   */
   @Post('/send-to-all', { summary: '群发消息' })
   async sendToAll(@Body() body: any) {
     await this.messageService.sendToAll(body);
-    return { code: 0, message: 'success' };
+    return this.ok();
   }
 }
