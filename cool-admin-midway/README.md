@@ -233,7 +233,7 @@ export class DemoAppGoodsController extends BaseController {
 
 ### API 文档
 
-启动服务后访问：http://localhost:7001/swagger-ui/index.html
+启动服务后访问：http://localhost:8001/swagger-ui/index.html
 
 ### 测试
 
