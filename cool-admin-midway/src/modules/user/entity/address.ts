@@ -1,34 +1,33 @@
 import { BaseEntity } from '../../base/entity/base';
-import { Entity, Column, Index } from 'typeorm';
+import { Column, Entity, Index } from 'typeorm';
 
 /**
- * 用户模块-收货地址
+ * 用户收货地址
  */
 @Entity('user_address')
 export class UserAddressEntity extends BaseEntity {
   @Index()
-  @Column({ comment: '用户ID' })
-  userId: number;
+  @Column({ comment: '用户ID', type: 'bigint' })
+  userId: string;
 
-  @Column({ comment: '联系人' })
-  contact: string;
+  @Column({ comment: '收货人姓名', length: 50 })
+  name: string;
 
-  @Index()
-  @Column({ comment: '手机号', length: 11 })
+  @Column({ comment: '收货人电话', length: 11 })
   phone: string;
 
-  @Column({ comment: '省' })
+  @Column({ comment: '省', length: 50 })
   province: string;
 
-  @Column({ comment: '市' })
+  @Column({ comment: '市', length: 50 })
   city: string;
 
-  @Column({ comment: '区' })
+  @Column({ comment: '区/县', length: 50 })
   district: string;
 
-  @Column({ comment: '地址' })
-  address: string;
+  @Column({ comment: '详细地址', length: 200 })
+  detail: string;
 
-  @Column({ comment: '是否默认', default: false })
-  isDefault: boolean;
+  @Column({ comment: '是否默认', default: 0, type: 'tinyint' })
+  isDefault: number;
 }
