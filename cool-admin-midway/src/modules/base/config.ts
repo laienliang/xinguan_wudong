@@ -27,7 +27,7 @@ export default () => {
       // 单点登录
       sso: false,
       // 注意： 最好重新修改，防止破解
-      secret: 'cool-admin-xxxxxx',
+      secret: '2eb0f9eb-f4b4-4d27-bd9e-c549ea34d833',
       // token
       token: {
         // 2小时过期，需要用刷新token
