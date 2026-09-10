@@ -5,8 +5,9 @@ module.exports = {
   // 串行执行避免端口冲突
   maxWorkers: 1,
   collectCoverageFrom: [
-    'src/modules/**/*.service.ts',
-    'src/modules/**/*.controller.ts',
+    // 项目文件名采用目录区分 service/controller，而不是文件名后缀。
+    'src/modules/**/service/**/*.ts',
+    'src/modules/**/controller/**/*.ts',
     '!src/modules/**/entity/**',
     '!src/modules/**/config.ts',
     '!**/node_modules/**',
