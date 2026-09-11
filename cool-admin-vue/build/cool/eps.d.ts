@@ -155,6 +155,11 @@ declare namespace Eps {
 		userId?: BigInt;
 
 		/**
+		 * 后台用户ID
+		 */
+		adminUserId?: BigInt;
+
+		/**
 		 * 商家用户名（唯一）
 		 */
 		username?: string;

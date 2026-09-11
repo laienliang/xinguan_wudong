@@ -1,0 +1,76 @@
+- generic [ref=f10e3]:
+  - banner [ref=f10e4]:
+    - generic [ref=f10e5]:
+      - link "乌东 WUDONG TRAVEL" [ref=f10e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f10e7]: 乌东
+        - text: WUDONG TRAVEL
+      - navigation "主导航" [ref=f10e8]:
+        - link "衣 · 非遗" [ref=f10e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=f10e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=f10e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=f10e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=f10e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=f10e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=f10e15]:
+        - button "⌖ 黔东南" [ref=f10e16] [cursor=pointer]
+        - link "搜索" [ref=f10e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=f10e18] [cursor=pointer]:
+          - /url: /cart
+        - link "我的乌东" [ref=f10e19] [cursor=pointer]:
+          - /url: /account
+  - main [ref=f10e20]:
+    - generic [ref=f10e21]:
+      - navigation "面包屑" [ref=f10e22]:
+        - link "首页" [ref=f10e23] [cursor=pointer]:
+          - /url: /
+        - text: /购物车
+      - generic [ref=f10e24]:
+        - generic [ref=f10e25]:
+          - paragraph [ref=f10e26]: YOUR SELECTION
+          - heading "把喜欢的带回家" [level=1] [ref=f10e27]
+        - button "清空购物车" [ref=f10e28] [cursor=pointer]
+      - generic [ref=f10e29]:
+        - article [ref=f10e31]:
+          - img "[TEST_SEED_20260909]蜀绣挂饰" [ref=f10e33]
+          - generic [ref=f10e34]:
+            - heading "[TEST_SEED_20260909]蜀绣挂饰" [level=2] [ref=f10e35]
+            - paragraph [ref=f10e36]: ¥99.90
+            - generic [ref=f10e37]:
+              - button "−" [ref=f10e38] [cursor=pointer]
+              - generic [ref=f10e39]: "1"
+              - button "＋" [ref=f10e40] [cursor=pointer]
+              - button "移除" [ref=f10e41] [cursor=pointer]
+        - complementary [ref=f10e42]:
+          - paragraph [ref=f10e43]: 商品合计
+          - paragraph [ref=f10e44]: ¥99.90
+          - generic [ref=f10e45]:
+            - text: 收货地址
+            - combobox "收货地址" [ref=f10e46]:
+              - option "请选择收货地址" [selected]
+          - button "确认订单" [disabled] [ref=f10e47]
+  - contentinfo [ref=f10e48]:
+    - generic [ref=f10e49]:
+      - generic [ref=f10e50]:
+        - paragraph [ref=f10e51]: 乌东文旅
+        - paragraph [ref=f10e52]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=f10e53]:
+        - paragraph [ref=f10e54]: 探索乌东
+        - generic [ref=f10e55]:
+          - link "非遗好物" [ref=f10e56] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=f10e57] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=f10e58] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=f10e59]:
+        - paragraph [ref=f10e60]: 联系我们
+        - paragraph [ref=f10e61]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=f10e62]: © 2026 乌东文旅 · 让每一次抵达都有故事

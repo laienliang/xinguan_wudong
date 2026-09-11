@@ -2,14 +2,11 @@
 	<div class="page-login">
 		<div class="box">
 			<div class="logo">
-				<div class="icon">
-					<img src="/logo.png" alt="Logo" />
-				</div>
-
-				<span>{{ app.info.name }}</span>
+				<div class="icon">乌</div>
+				<div><span>乌东文旅</span><small>管理中心</small></div>
 			</div>
 
-			<p class="desc">{{ $t('快速开发后台权限管理系统') }}</p>
+			<p class="desc">管理苗寨店铺、内容与旅行服务</p>
 
 			<div class="form">
 				<el-form label-position="top" class="form" :disabled="saving">
@@ -17,7 +14,7 @@
 						<el-input
 							v-model="form.username"
 							:placeholder="$t('请输入用户名')"
-							maxlength="20"
+							maxlength="50"
 						/>
 					</el-form-item>
 
@@ -66,7 +63,7 @@
 			<cl-svg name="bg"></cl-svg>
 		</div>
 
-		<a href="https://cool-js.com" class="copyright"> Copyright © COOL </a>
+		<p class="copyright">乌东文旅管理中心 · 黔东南苗岭</p>
 	</div>
 </template>
 
@@ -148,7 +145,7 @@ async function toLogin() {
 </script>
 
 <style lang="scss" scoped>
-$color: #2c3142;
+$color: #23483f;
 
 .page-login {
 	display: flex;
@@ -157,17 +154,21 @@ $color: #2c3142;
 	height: 100%;
 	width: 100%;
 	position: relative;
-	background-color: #fff;
+	background: #e9e4d9;
 	color: $color;
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0 48% 0 0;
+		background: linear-gradient(90deg, rgba(16, 42, 35, .76), rgba(16, 42, 35, .26)), url('/images/wudong/ctrip-1.jpg') center / cover;
+	}
 
 	.bg {
 		position: absolute;
 		left: 0;
 		top: 0;
 		height: 100%;
-		width: 90%;
-		pointer-events: none;
-		transform: rotate(180deg) scaleY(-1);
+		display: none;
 
 		.cl-svg {
 			height: 100%;
@@ -181,7 +182,7 @@ $color: #2c3142;
 		left: 0;
 		text-align: center;
 		width: 100%;
-		color: var(--el-color-info);
+		color: #6f675c;
 		font-size: 14px;
 		user-select: none;
 	}
@@ -192,7 +193,7 @@ $color: #2c3142;
 		justify-content: center;
 		align-items: center;
 		height: 100%;
-		width: 50%;
+		width: min(520px, 50%);
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -206,18 +207,31 @@ $color: #2c3142;
 			user-select: none;
 
 			.icon {
-				border-radius: 8px;
-				padding: 5px;
+				border-radius: 4px;
+				width: 44px;
+				height: 44px;
+				display: grid;
+				place-items: center;
 				margin-right: 10px;
-				background-color: $color;
-
-				img {
-					height: 36px;
-				}
+				background-color: #a8422c;
+				color: #fff7ed;
+				font-family: STKaiti, KaiTi, serif;
+				font-size: 26px;
 			}
 
 			span {
-				font-size: 38px;
+				display: block;
+				font-family: STKaiti, KaiTi, serif;
+				font-size: 32px;
+				letter-spacing: 4px;
+			}
+
+			small {
+				display: block;
+				margin-top: 2px;
+				font-size: 12px;
+				letter-spacing: 4px;
+				color: #8c7663;
 				font-weight: bold;
 				line-height: 1;
 				letter-spacing: 3px;

@@ -1,0 +1,144 @@
+- generic [ref=f2e3]:
+  - banner [ref=f2e4]:
+    - generic [ref=f2e5]:
+      - link "乌东 WUDONG TRAVEL" [ref=f2e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f2e7]: 乌东
+        - text: WUDONG TRAVEL
+      - navigation "主导航" [ref=f2e8]:
+        - link "衣 · 非遗" [ref=f2e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=f2e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=f2e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=f2e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=f2e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=f2e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=f2e15]:
+        - button "⌖ 已定位" [ref=f2e16] [cursor=pointer]
+        - link "搜索" [ref=f2e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=f2e18] [cursor=pointer]:
+          - /url: /cart
+        - link "登录" [ref=f2e19] [cursor=pointer]:
+          - /url: /login
+  - main [ref=f2e20]:
+    - generic [ref=f2e21]:
+      - generic [ref=f2e22]:
+        - img "乌东苗寨山谷与木屋风景" [ref=f2e23]
+        - generic [ref=f2e26]:
+          - paragraph [ref=f2e27]: A village made of stories
+          - heading "乌东，等风也等你。" [level=1] [ref=f2e28]
+          - paragraph [ref=f2e29]: 走进苗寨深处，吃一桌长桌宴，住一晚山野木屋，把旅途交给这里的人和时间。
+          - generic [ref=f2e30]:
+            - link "开始探索" [ref=f2e31] [cursor=pointer]:
+              - /url: /scenic
+            - link "看看旅人故事" [ref=f2e32] [cursor=pointer]:
+              - /url: /community
+      - generic [ref=f2e33]:
+        - generic [ref=f2e34]:
+          - generic [ref=f2e35]:
+            - paragraph [ref=f2e36]: THE SIX WAYS TO MEET WUDONG
+            - heading "从一顿饭开始，慢慢认识这里。" [level=2] [ref=f2e37]
+          - link "探索全部 →" [ref=f2e38] [cursor=pointer]:
+            - /url: /search
+        - generic [ref=f2e39]:
+          - link [ref=f2e40] [cursor=pointer]:
+            - /url: /shop
+            - generic [ref=f2e42]:
+              - text: 衣
+              - heading "非遗好物" [level=3] [ref=f2e43]
+              - paragraph [ref=f2e44]: 银饰、蜡染与手作故事
+          - link [ref=f2e45] [cursor=pointer]:
+            - /url: /restaurant
+            - generic [ref=f2e47]:
+              - text: 食
+              - heading "地道风味" [level=3] [ref=f2e48]
+              - paragraph [ref=f2e49]: 一桌苗家长桌宴
+          - link [ref=f2e50] [cursor=pointer]:
+            - /url: /hotel
+            - generic [ref=f2e52]:
+              - text: 住
+              - heading "山野住处" [level=3] [ref=f2e53]
+              - paragraph [ref=f2e54]: 在木屋里听风
+          - link [ref=f2e55] [cursor=pointer]:
+            - /url: /scenic
+            - generic [ref=f2e57]:
+              - text: 行
+              - heading "景区门票" [level=3] [ref=f2e58]
+              - paragraph [ref=f2e59]: 把山水装进行囊
+          - link [ref=f2e60] [cursor=pointer]:
+            - /url: /route
+            - generic [ref=f2e62]:
+              - text: 游
+              - heading "旅行线路" [level=3] [ref=f2e63]
+              - paragraph [ref=f2e64]: 一日或两日的从容
+          - link [ref=f2e65] [cursor=pointer]:
+            - /url: /community
+            - generic [ref=f2e67]:
+              - text: 娱
+              - heading "社区旅记" [level=3] [ref=f2e68]
+              - paragraph [ref=f2e69]: 听旅人说起乌东
+      - generic [ref=f2e71]:
+        - generic [ref=f2e72]:
+          - generic [ref=f2e73]:
+            - paragraph [ref=f2e74]: NEARBY NOTES
+            - heading "离你不远的好去处" [level=2] [ref=f2e75]
+          - link "看更多 →" [ref=f2e76] [cursor=pointer]:
+            - /url: /restaurant
+        - link "[TEST_SEED_20260909]山野餐厅 [TEST_SEED_20260909]山野餐厅 ★ 4.8 测试地址" [ref=f2e78] [cursor=pointer]:
+          - /url: /restaurant/1
+          - img "[TEST_SEED_20260909]山野餐厅" [ref=f2e80]
+          - generic [ref=f2e81]:
+            - generic [ref=f2e82]:
+              - heading "[TEST_SEED_20260909]山野餐厅" [level=3] [ref=f2e83]
+              - generic [ref=f2e84]: ★ 4.8
+            - paragraph [ref=f2e85]: 测试地址
+      - generic [ref=f2e86]:
+        - generic [ref=f2e87]:
+          - generic [ref=f2e88]:
+            - paragraph [ref=f2e89]: HANDMADE FAVORITES
+            - heading "带走一件乌东的手艺" [level=2] [ref=f2e90]
+          - link "查看好物 →" [ref=f2e91] [cursor=pointer]:
+            - /url: /shop
+        - link [ref=f2e93] [cursor=pointer]:
+          - /url: /shop/1
+          - img "[TEST_SEED_20260909]蜀绣挂饰" [ref=f2e95]
+          - generic [ref=f2e96]:
+            - heading "[TEST_SEED_20260909]蜀绣挂饰" [level=3] [ref=f2e97]
+            - paragraph [ref=f2e98]: 测试商品
+            - paragraph [ref=f2e99]: ¥99.90
+      - generic [ref=f2e101]:
+        - generic [ref=f2e102]:
+          - generic [ref=f2e103]:
+            - paragraph [ref=f2e104]: TRAVELER LETTERS
+            - heading "旅人写下的这一页" [level=2] [ref=f2e105]
+          - link "阅读更多 →" [ref=f2e106] [cursor=pointer]:
+            - /url: /community
+        - link [ref=f2e108] [cursor=pointer]:
+          - /url: /community/1
+          - img "[TEST_SEED_20260909]我的非遗之旅" [ref=f2e110]
+          - heading "[TEST_SEED_20260909]我的非遗之旅" [level=3] [ref=f2e111]
+          - paragraph [ref=f2e112]: 这是一条用于接口测试的游记。
+  - contentinfo [ref=f2e113]:
+    - generic [ref=f2e114]:
+      - generic [ref=f2e115]:
+        - paragraph [ref=f2e116]: 乌东文旅
+        - paragraph [ref=f2e117]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=f2e118]:
+        - paragraph [ref=f2e119]: 探索乌东
+        - generic [ref=f2e120]:
+          - link "非遗好物" [ref=f2e121] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=f2e122] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=f2e123] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=f2e124]:
+        - paragraph [ref=f2e125]: 联系我们
+        - paragraph [ref=f2e126]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=f2e127]: © 2026 乌东文旅 · 让每一次抵达都有故事

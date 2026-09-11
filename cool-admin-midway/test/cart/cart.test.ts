@@ -32,6 +32,29 @@ describe('test/cart/cart.test.ts', () => {
     expect(result.body.code).toBe(1000);
   });
 
+  it('重复加购时应累加数量', async () => {
+    const first = await createHttpRequest(app)
+      .post('/app/cart/add')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        goodsId: '99',
+        goodsType: 1,
+        quantity: 1,
+      });
+    expect(first.body.code).toBe(1000);
+
+    const second = await createHttpRequest(app)
+      .post('/app/cart/add')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        goodsId: '99',
+        goodsType: 1,
+        quantity: 2,
+      });
+    expect(second.body.code).toBe(1000);
+    expect(second.body.data.quantity).toBe(3);
+  });
+
   it('should list cart items', async () => {
     const result = await createHttpRequest(app)
       .post('/app/cart/list')

@@ -32,7 +32,7 @@ const { service } = useCool();
 // cl-crud 配置
 const Crud = useCrud(
 	{
-		service: service.food.bookingOrder
+		service: service.food.booking
 	},
 	app => {
 		app.refresh();

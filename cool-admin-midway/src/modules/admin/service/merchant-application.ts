@@ -52,11 +52,11 @@ export class MerchantApplicationService extends BaseService {
 
     if (approved) {
       // 审核通过 - 创建商家账号
-      const username = `merchant_${application.userId}_${Date.now()}`;
+      const username = `m_${application.userId}_${Date.now().toString(36)}`;
       const password = `${application.contactPhone.slice(-6)}`; // 默认密码：手机号后6位
 
       // 创建商家账号
-      const merchantId = await this.merchantUserService.createMerchant(
+      const merchant = await this.merchantUserService.createMerchant(
         application.userId,
         username,
         password,
@@ -75,8 +75,8 @@ export class MerchantApplicationService extends BaseService {
 
       return {
         success: true,
-        merchantId,
-        username,
+        merchantId: merchant.merchantId,
+        username: merchant.username,
         defaultPassword: password,
       };
     } else {

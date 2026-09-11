@@ -1,0 +1,94 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "乌东 WUDONG TRAVEL" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: 乌东
+        - text: WUDONG TRAVEL
+      - navigation "主导航" [ref=e8]:
+        - link "衣 · 非遗" [ref=e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=e15]:
+        - button "⌖ 黔东南" [ref=e16] [cursor=pointer]
+        - link "搜索" [ref=e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=e18] [cursor=pointer]:
+          - /url: /cart
+        - link "我的乌东" [ref=e79] [cursor=pointer]:
+          - /url: /account
+  - main [ref=e20]:
+    - generic [ref=e109]:
+      - navigation "面包屑" [ref=e110]:
+        - link "首页" [ref=e111] [cursor=pointer]:
+          - /url: /
+        - text: /商家入驻
+      - generic [ref=e112]:
+        - paragraph [ref=e113]: MERCHANT APPLICATION
+        - heading "申请商家入驻" [level=1] [ref=e114]
+        - paragraph [ref=e115]: 提交身份证、营业执照和店铺资料。平台审核通过后将生成商家后台账号。
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - text: 店铺名称
+              - textbox "店铺名称" [ref=e119]:
+                - /placeholder: 例如：乌东苗味长桌宴
+            - generic [ref=e120]:
+              - text: 经营类型
+              - combobox "经营类型" [ref=e121]:
+                - option "衣 · 非遗商品"
+                - option "食 · 餐饮美食" [selected]
+                - option "住 · 住宿预订"
+                - option "行 · 线路票务"
+            - generic [ref=e122]:
+              - text: 联系人
+              - textbox "联系人" [ref=e123]:
+                - /placeholder: 姓名
+            - generic [ref=e124]:
+              - text: 联系电话
+              - textbox "联系电话" [ref=e125]:
+                - /placeholder: 11位手机号
+            - generic [ref=e126]:
+              - text: 身份证号
+              - textbox "身份证号" [ref=e127]:
+                - /placeholder: 18位身份证号
+            - generic [ref=e128]:
+              - text: 身份证正面图片地址
+              - textbox "身份证正面图片地址" [ref=e129]:
+                - /placeholder: https://…
+            - generic [ref=e130]:
+              - text: 身份证反面图片地址
+              - textbox "身份证反面图片地址" [ref=e131]:
+                - /placeholder: https://…
+            - generic [ref=e132]:
+              - text: 营业执照图片地址
+              - textbox "营业执照图片地址" [ref=e133]:
+                - /placeholder: https://…
+          - button "提交入驻申请" [ref=e134] [cursor=pointer]
+  - contentinfo [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - paragraph [ref=e39]: 乌东文旅
+        - paragraph [ref=e40]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: 探索乌东
+        - generic [ref=e43]:
+          - link "非遗好物" [ref=e44] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=e45] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=e46] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=e47]:
+        - paragraph [ref=e48]: 联系我们
+        - paragraph [ref=e49]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=e50]: © 2026 乌东文旅 · 让每一次抵达都有故事

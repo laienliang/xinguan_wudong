@@ -14,6 +14,13 @@ export default {
   koa: {
     port: availablePort(8001),
   },
+  // 跨域配置
+  crossDomain: {
+    allowHeaders: 'Content-Type,Authorization,X-Requested-With,Accept,Origin',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+    credentials: true,
+    origin: '*',
+  },
   // 开启异步上下文管理
   asyncContextManager: {
     enable: true,
@@ -76,7 +83,7 @@ export default {
     tenant: {
       enable: true, // 启用多租户
       // 需要过滤多租户的url, 支持通配符， 如/admin/**/* 表示admin模块下的所有接口都进行多租户过滤
-      urls: [],
+      urls: ['/admin/shop/**/*', '/admin/food/**/*'],
     },
     // 国际化配置
     i18n: {

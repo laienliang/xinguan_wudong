@@ -2,6 +2,7 @@ import { Provide, Config } from '@midwayjs/core';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository } from 'typeorm';
 import { CartEntity } from '../entity/cart';
+import { ShopGoodsEntity } from '../../shop/entity/goods';
 import { BaseService } from '@cool-midway/core';
 
 /**
@@ -12,29 +13,65 @@ export class CartService extends BaseService {
   @InjectEntityModel(CartEntity)
   cartEntity: Repository<CartEntity>;
 
+  @InjectEntityModel(ShopGoodsEntity)
+  shopGoodsEntity: Repository<ShopGoodsEntity>;
+
   @Config('typeorm.dataSource.default.type')
   ormType: string;
 
   /**
-   * 新增前检查是否已存在，存在则累加数量
+   * 新增购物车项，相同商品与规格自动累加数量
    */
-  async modifyBefore(data: any, type: 'delete' | 'update' | 'add') {
-    if (type === 'add') {
-      const existing = await this.cartEntity.findOne({
-        where: {
-          userId: data.userId,
-          goodsId: data.goodsId,
-          skuId: data.skuId || null,
-        },
-      });
-
-      if (existing) {
-        // 已存在，累加数量
-        existing.quantity += data.quantity || 1;
-        await this.cartEntity.save(existing);
-        throw new Error('CART_ALREADY_EXISTS'); // 阻止继续执行 add
-      }
+  async addOrIncrement(userId: string, data: Partial<CartEntity>) {
+    const existing = await this.cartEntity.findOne({
+      where: {
+        userId,
+        goodsId: String(data.goodsId),
+        skuId: data.skuId || null,
+      },
+    });
+    if (existing) {
+      existing.quantity += Math.max(1, Number(data.quantity) || 1);
+      return await this.cartEntity.save(existing);
     }
+    return await this.cartEntity.save(
+      this.cartEntity.create({
+        userId,
+        goodsId: String(data.goodsId),
+        goodsType: Number(data.goodsType),
+        skuId: data.skuId || null,
+        quantity: Math.max(1, Number(data.quantity) || 1),
+        selected: 1,
+      })
+    );
+  }
+
+  /**
+   * 查询购物车并补充商品展示信息
+   */
+  async listWithGoods(userId: string) {
+    const carts = await this.cartEntity.find({
+      where: { userId },
+      order: { createTime: 'DESC' },
+    });
+    const goodsIds = carts.map(cart => Number(cart.goodsId));
+    const goods = goodsIds.length
+      ? await this.shopGoodsEntity.findByIds(goodsIds)
+      : [];
+    const goodsMap = new Map(
+      goods.map(goodsItem => [String(goodsItem.id), goodsItem])
+    );
+    return carts.map(cart => {
+      const goodsItem = goodsMap.get(String(cart.goodsId));
+      return {
+        ...cart,
+        title: goodsItem?.title,
+        subtitle: goodsItem?.subtitle,
+        price: goodsItem?.price,
+        mainImage: goodsItem?.mainImage,
+        stock: goodsItem?.stock,
+      };
+    });
   }
 
   /**

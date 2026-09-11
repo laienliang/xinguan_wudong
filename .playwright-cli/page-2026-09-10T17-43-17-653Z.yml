@@ -1,0 +1,58 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=e403]:
+    - generic [ref=e404]:
+      - generic [ref=e405]:
+        - img "Logo" [ref=e407]
+        - generic [ref=e408]: COOL-ADMIN
+      - paragraph [ref=e409]: 快速开发后台权限管理系统
+      - generic [ref=e411]:
+        - generic [ref=e412]:
+          - generic [ref=e413]: 用户名
+          - textbox "用户名" [ref=e417]:
+            - /placeholder: 请输入用户名
+            - text: merchant_3_1789059339051
+        - generic [ref=e418]:
+          - generic [ref=e419]: 密码
+          - textbox "密码" [ref=e423]:
+            - /placeholder: 请输入密码
+        - generic [ref=e424]:
+          - generic [ref=e425]: 验证码
+          - generic [ref=e428]:
+            - textbox "验证码" [ref=e429]
+            - generic [ref=e430] [cursor=pointer]
+        - button "登录" [ref=e432] [cursor=pointer]
+    - link "Copyright © COOL" [ref=e434] [cursor=pointer]:
+      - /url: https://cool-js.com
+  - generic [ref=e3]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]
+        - textbox "搜索关键字" [ref=e19]
+      - tree [ref=e20]:
+        - treeitem "admin" [ref=e21]
+        - treeitem "base" [ref=e27]
+        - treeitem "community" [ref=e33]
+        - treeitem "demo" [ref=e39]
+        - treeitem "dict" [ref=e45]
+        - treeitem "food" [ref=e51]
+        - treeitem "hotel" [ref=e57]
+        - treeitem "message" [ref=e63]
+        - treeitem "order" [ref=e69]
+        - treeitem "plugin" [ref=e75]
+        - treeitem "recycle" [ref=e81]
+        - treeitem "shop" [ref=e87]
+        - treeitem "space" [ref=e93]
+        - treeitem "task" [ref=e99]
+        - treeitem "tour" [ref=e105]
+        - treeitem "user" [ref=e111]
+    - generic [ref=e117]:
+      - generic [ref=e120] [cursor=pointer]: 
+      - generic [ref=e122] [cursor=pointer]: 
+      - generic [ref=e124] [cursor=pointer]: 
+      - generic [ref=e126] [cursor=pointer]: 
+  - generic [ref=e128] [cursor=pointer]: 

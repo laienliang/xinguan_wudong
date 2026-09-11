@@ -1,0 +1,9 @@
+{
+  "pid": 51141,
+  "startedAt": 1789105378299,
+  "command": "dev",
+  "cwd": "/Users/lianglaiyang_1/workspace/xinguan_wudong/code/tourist-pc-frontend",
+  "port": 3000,
+  "hostname": "0.0.0.0",
+  "url": "http://0.0.0.0:3000"
+}

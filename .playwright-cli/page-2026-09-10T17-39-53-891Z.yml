@@ -1,0 +1,112 @@
+- generic [ref=f2e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=f2e130]:
+    - generic [ref=f2e132]:
+      - generic [ref=f2e133]: COOL-ADMIN
+      - textbox "搜索关键字" [ref=f2e142]
+      - menubar [ref=f2e148]:
+        - menuitem "食-餐饮美食" [expanded] [ref=f2e149]:
+          - menu [ref=f2e157]:
+            - menuitem "餐厅管理" [ref=f2e158] [cursor=pointer]
+            - menuitem "菜品管理" [ref=f2e162] [cursor=pointer]
+            - menuitem "农产品管理" [ref=f2e166] [cursor=pointer]
+            - menuitem "餐位时段" [ref=f2e170] [cursor=pointer]
+            - menuitem "餐饮预订" [active] [ref=f2e174] [cursor=pointer]
+    - generic [ref=f2e178]:
+      - generic [ref=f2e179]:
+        - generic [ref=f2e180] [cursor=pointer]
+        - navigation "面包屑" [ref=f2e184]:
+          - link "食-餐饮美食" [ref=f2e186]
+          - link "餐饮预订" [ref=f2e510]
+        - list [ref=f2e192]:
+          - listitem [ref=f2e193] [cursor=pointer]:
+            - generic [ref=f2e194]:
+              - generic [ref=f2e195]: AI极速编码
+              - generic [ref=f2e196]: Start
+          - listitem [ref=f2e197] [cursor=pointer]
+          - listitem [ref=f2e201] [cursor=pointer]:
+            - button [ref=f2e204]
+          - listitem [ref=f2e207] [cursor=pointer]
+        - button "浏览器验收苗家食堂" [ref=f2e215] [cursor=pointer]
+      - generic [ref=f2e222]:
+        - list [ref=f2e223]:
+          - listitem [ref=f2e224] [cursor=pointer]
+          - listitem [ref=f2e227] [cursor=pointer]
+          - listitem [ref=f2e230] [cursor=pointer]
+        - generic [ref=f2e237]:
+          - generic [ref=f2e238] [cursor=pointer]: 餐位时段
+          - generic [ref=f2e511] [cursor=pointer]: 餐饮预订
+        - list [ref=f2e242]:
+          - listitem [ref=f2e243] [cursor=pointer]
+      - generic [ref=f2e515]:
+        - generic [ref=f2e516]:
+          - button "刷新" [ref=f2e517] [cursor=pointer]
+          - generic [ref=f2e521]:
+            - textbox "搜索联系人" [ref=f2e524]
+            - button "搜索" [ref=f2e525] [cursor=pointer]
+        - generic [ref=f2e529]:
+          - table [ref=f2e531]:
+            - rowgroup [ref=f2e542]:
+              - row "联系人 联系电话 预订日期 就餐人数 状态 备注 创建时间 操作" [ref=f2e543]:
+                - columnheader [ref=f2e544]:
+                  - generic [ref=f2e547] [cursor=pointer]:
+                    - checkbox [disabled]
+                - columnheader "联系人" [ref=f2e549]
+                - columnheader "联系电话" [ref=f2e551]
+                - columnheader "预订日期" [ref=f2e553]
+                - columnheader "就餐人数" [ref=f2e555]
+                - columnheader "状态" [ref=f2e557]
+                - columnheader "备注" [ref=f2e559]
+                - columnheader "创建时间" [ref=f2e561] [cursor=pointer]
+                - columnheader "操作" [ref=f2e566]
+          - generic [ref=f2e571]:
+            - table:
+              - rowgroup
+            - paragraph [ref=f2e594]: 暂无数据
+        - generic [ref=f2e598]:
+          - generic [ref=f2e599]: 共 0 条
+          - generic [ref=f2e602] [cursor=pointer]:
+            - generic:
+              - combobox [ref=f2e604]
+              - generic [ref=f2e605]: 20条/页
+          - button "上一页" [disabled] [ref=f2e610]
+          - list [ref=f2e611]:
+            - listitem "第 1 页" [ref=f2e612]: "1"
+          - button "下一页" [disabled] [ref=f2e613]
+          - generic [ref=f2e614]:
+            - generic [ref=f2e615]: 前往
+            - spinbutton "页" [ref=f2e618]: "1"
+            - generic [ref=f2e619]: 页
+  - generic [ref=f2e3]:
+    - generic [ref=f2e9]:
+      - generic [ref=f2e10]:
+        - generic [ref=f2e11] [cursor=pointer]
+        - textbox "搜索关键字" [ref=f2e19]
+      - tree [ref=f2e20]:
+        - treeitem "admin" [ref=f2e21]
+        - treeitem "base" [ref=f2e27]
+        - treeitem "community" [ref=f2e33]
+        - treeitem "demo" [ref=f2e39]
+        - treeitem "dict" [ref=f2e45]
+        - treeitem "food" [ref=f2e51]
+        - treeitem "hotel" [ref=f2e57]
+        - treeitem "message" [ref=f2e63]
+        - treeitem "order" [ref=f2e69]
+        - treeitem "plugin" [ref=f2e75]
+        - treeitem "recycle" [ref=f2e81]
+        - treeitem "shop" [ref=f2e87]
+        - treeitem "space" [ref=f2e93]
+        - treeitem "task" [ref=f2e99]
+        - treeitem "tour" [ref=f2e105]
+        - treeitem "user" [ref=f2e111]
+    - generic [ref=f2e117]:
+      - generic [ref=f2e120] [cursor=pointer]: 
+      - generic [ref=f2e122] [cursor=pointer]: 
+      - generic [ref=f2e124] [cursor=pointer]: 
+      - generic [ref=f2e126] [cursor=pointer]: 
+  - generic [ref=f2e128] [cursor=pointer]: 
+  - text: "* * * * *"

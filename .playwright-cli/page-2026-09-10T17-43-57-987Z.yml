@@ -1,0 +1,221 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=e435]:
+    - generic [ref=e437]:
+      - generic [ref=e438]: COOL-ADMIN
+      - textbox "搜索关键字" [ref=e447]
+      - menubar [ref=e453]:
+        - menuitem "系统管理" [ref=e454]
+        - menuitem "数据管理" [ref=e462]
+        - menuitem "扩展管理" [ref=e470]
+        - menuitem "用户管理" [ref=e478]
+        - menuitem "衣-非遗商品" [ref=e486]
+        - menuitem "食-餐饮美食" [ref=e494]
+        - menuitem "住-住宿预订" [ref=e502]
+        - menuitem "行-线路订票" [ref=e510]
+        - menuitem "社区-照片分享" [ref=e518]
+        - menuitem "平台管理" [expanded] [ref=e526]:
+          - menu [ref=e899]:
+            - menuitem "数据概览" [ref=e900] [cursor=pointer]
+            - menuitem "平台公告" [ref=e904] [cursor=pointer]
+            - menuitem "平台轮播" [ref=e908] [cursor=pointer]
+            - menuitem "商家账号" [ref=e912] [cursor=pointer]
+            - menuitem "入驻申请" [ref=e916] [cursor=pointer]
+        - menuitem "框架教程" [ref=e534]
+    - generic [ref=e542]:
+      - generic [ref=e543]:
+        - generic [ref=e544] [cursor=pointer]
+        - generic:
+          - navigation "面包屑"
+        - list [ref=e547]:
+          - listitem [ref=e548] [cursor=pointer]:
+            - generic [ref=e549]:
+              - generic [ref=e550]: AI极速编码
+              - generic [ref=e551]: Start
+          - listitem [ref=e552] [cursor=pointer]
+          - listitem [ref=e556] [cursor=pointer]:
+            - button [ref=e559]
+          - listitem [ref=e562] [cursor=pointer]
+        - button "管理员" [ref=e570] [cursor=pointer]
+      - generic [ref=e577]:
+        - list [ref=e578]:
+          - listitem [ref=e579] [cursor=pointer]
+          - listitem [ref=e582] [cursor=pointer]
+          - listitem [ref=e585] [cursor=pointer]
+        - list [ref=e591]:
+          - listitem [ref=e592] [cursor=pointer]
+      - generic [ref=e599]:
+        - generic [ref=e600]:
+          - generic [ref=e603]:
+            - generic [ref=e604]: 总用户数
+            - generic [ref=e608]:
+              - generic [ref=e609]: "11980"
+              - generic [ref=e610]: +12%
+            - generic [ref=e616]:
+              - generic [ref=e617]: 日增用户数
+              - generic [ref=e618]: "69"
+          - generic [ref=e621]:
+            - generic [ref=e622]: 浏览量
+            - generic [ref=e630]:
+              - generic [ref=e631]: 访客数
+              - generic [ref=e632]: "142"
+          - generic [ref=e635]:
+            - generic [ref=e636]: 付款笔数
+            - generic [ref=e640]: 8500 笔
+            - generic [ref=e642]:
+              - generic [ref=e643]: 转化率
+              - generic [ref=e644]: 60%
+          - generic [ref=e647]:
+            - generic [ref=e648]: 总销售额
+            - generic [ref=e652]: 9,279,884 元
+            - list [ref=e655]:
+              - listitem [ref=e656]:
+                - generic [ref=e657]: 周同比
+                - generic [ref=e658]: "-4%"
+              - listitem [ref=e664]:
+                - generic [ref=e665]: 日同比
+                - generic [ref=e666]: +7%
+        - generic [ref=e675]:
+          - radiogroup "segmented" [ref=e676]:
+            - generic [ref=e677]:
+              - generic [ref=e678] [cursor=pointer]:
+                - radio "销售金额" [checked]
+                - generic [ref=e679]: 销售金额
+              - generic [ref=e680] [cursor=pointer]:
+                - radio "销售订单"
+                - generic [ref=e681]: 销售订单
+          - generic [ref=e682]: 2026年
+        - generic [ref=e687]:
+          - generic [ref=e689]:
+            - generic [ref=e690]:
+              - generic [ref=e691]: 热门商品排行
+              - radiogroup "segmented" [ref=e692]:
+                - generic [ref=e693]:
+                  - generic [ref=e694] [cursor=pointer]:
+                    - radio "今日" [checked]
+                    - generic [ref=e695]: 今日
+                  - generic [ref=e696] [cursor=pointer]:
+                    - radio "本周"
+                    - generic [ref=e697]: 本周
+                  - generic [ref=e698] [cursor=pointer]:
+                    - radio "本月"
+                    - generic [ref=e699]: 本月
+                  - generic [ref=e700] [cursor=pointer]:
+                    - radio "全年"
+                    - generic [ref=e701]: 全年
+            - generic [ref=e705]:
+              - table [ref=e707]:
+                - rowgroup [ref=e715]:
+                  - row [ref=e716]:
+                    - columnheader "排名" [ref=e717]
+                    - columnheader "商品名称" [ref=e719]
+                    - columnheader "商品金额" [ref=e721]
+                    - columnheader "下单次数" [ref=e723] [cursor=pointer]
+                    - columnheader "日涨幅" [ref=e728] [cursor=pointer]
+                    - columnheader "上架时间" [ref=e733]
+              - table [ref=e739]:
+                - rowgroup [ref=e747]:
+                  - row [ref=e748]:
+                    - cell "1" [ref=e749]
+                    - cell "无线耳机" [ref=e752]
+                    - cell "299" [ref=e754]
+                    - cell "983" [ref=e756]
+                    - cell "5" [ref=e758]
+                    - cell "2023-01-01" [ref=e760]
+                  - row [ref=e762]:
+                    - cell "2" [ref=e763]
+                    - cell "运动耳机" [ref=e766]
+                    - cell "199" [ref=e768]
+                    - cell "763" [ref=e770]
+                    - cell "-3" [ref=e772]
+                    - cell "2023-02-15" [ref=e774]
+                  - row [ref=e776]:
+                    - cell "3" [ref=e777]
+                    - cell "蓝牙音箱" [ref=e780]
+                    - cell "399" [ref=e782]
+                    - cell "328" [ref=e784]
+                    - cell "7" [ref=e786]
+                    - cell "2023-03-10" [ref=e788]
+                  - row [ref=e790]:
+                    - cell "4" [ref=e791]
+                    - cell "4k显示屏" [ref=e794]
+                    - cell "999" [ref=e796]
+                    - cell "144" [ref=e798]
+                    - cell "4" [ref=e800]
+                    - cell "2023-04-05" [ref=e802]
+                  - row [ref=e804]:
+                    - cell "5" [ref=e805]
+                    - cell "罗技 G530" [ref=e808]
+                    - cell "499" [ref=e810]
+                    - cell "121" [ref=e812]
+                    - cell "-1" [ref=e814]
+                    - cell "2023-05-20" [ref=e816]
+                  - row [ref=e818]:
+                    - cell "6" [ref=e819]
+                    - cell "智能手表" [ref=e822]
+                    - cell "599" [ref=e824]
+                    - cell "450" [ref=e826]
+                    - cell "2" [ref=e828]
+                    - cell "2023-06-15" [ref=e830]
+                  - row [ref=e832]:
+                    - cell "7" [ref=e833]
+                    - cell "游戏鼠标" [ref=e836]
+                    - cell "150" [ref=e838]
+                    - cell "300" [ref=e840]
+                    - cell "6" [ref=e842]
+                    - cell "2023-07-01" [ref=e844]
+                  - row [ref=e846]:
+                    - cell "8" [ref=e847]
+                    - cell "机械键盘" [ref=e850]
+                    - cell "350" [ref=e852]
+                    - cell "200" [ref=e854]
+                    - cell "-2" [ref=e856]
+                    - cell "2023-08-10" [ref=e858]
+                  - row [ref=e860]:
+                    - cell "9" [ref=e861]
+                    - cell "VR眼镜" [ref=e864]
+                    - cell "799" [ref=e866]
+                    - cell "150" [ref=e868]
+                    - cell "8" [ref=e870]
+                    - cell "2023-09-05" [ref=e872]
+                  - row [ref=e874]:
+                    - cell "10" [ref=e875]
+                    - cell "智能音箱" [ref=e878]
+                    - cell "250" [ref=e880]
+                    - cell "100" [ref=e882]
+                    - cell "3" [ref=e884]
+                    - cell "2023-10-01" [ref=e886]
+          - generic [ref=e889]: 类别占比
+  - generic [ref=e3]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]
+        - textbox "搜索关键字" [ref=e19]
+      - tree [ref=e20]:
+        - treeitem "admin" [ref=e21]
+        - treeitem "base" [ref=e27]
+        - treeitem "community" [ref=e33]
+        - treeitem "demo" [ref=e39]
+        - treeitem "dict" [ref=e45]
+        - treeitem "food" [ref=e51]
+        - treeitem "hotel" [ref=e57]
+        - treeitem "message" [ref=e63]
+        - treeitem "order" [ref=e69]
+        - treeitem "plugin" [ref=e75]
+        - treeitem "recycle" [ref=e81]
+        - treeitem "shop" [ref=e87]
+        - treeitem "space" [ref=e93]
+        - treeitem "task" [ref=e99]
+        - treeitem "tour" [ref=e105]
+        - treeitem "user" [ref=e111]
+    - generic [ref=e117]:
+      - generic [ref=e120] [cursor=pointer]: 
+      - generic [ref=e122] [cursor=pointer]: 
+      - generic [ref=e897] [cursor=pointer]: 
+      - generic [ref=e124] [cursor=pointer]: 
+      - generic [ref=e126] [cursor=pointer]: 
+  - generic [ref=e128] [cursor=pointer]: 

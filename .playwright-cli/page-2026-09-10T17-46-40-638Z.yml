@@ -1,0 +1,35 @@
+- generic [active] [ref=f1e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=f1e3]:
+    - generic [ref=f1e9]:
+      - generic [ref=f1e10]:
+        - generic [ref=f1e11] [cursor=pointer]
+        - textbox "搜索关键字" [ref=f1e19]
+      - tree [ref=f1e20]:
+        - treeitem "admin" [ref=f1e21]
+        - treeitem "base" [ref=f1e27]
+        - treeitem "community" [ref=f1e33]
+        - treeitem "demo" [ref=f1e39]
+        - treeitem "dict" [ref=f1e45]
+        - treeitem "food" [ref=f1e51]
+        - treeitem "hotel" [ref=f1e57]
+        - treeitem "message" [ref=f1e63]
+        - treeitem "order" [ref=f1e69]
+        - treeitem "plugin" [ref=f1e75]
+        - treeitem "recycle" [ref=f1e81]
+        - treeitem "shop" [ref=f1e87]
+        - treeitem "space" [ref=f1e93]
+        - treeitem "task" [ref=f1e99]
+        - treeitem "tour" [ref=f1e105]
+        - treeitem "user" [ref=f1e111]
+    - generic [ref=f1e117]:
+      - generic [ref=f1e120] [cursor=pointer]: 
+      - generic [ref=f1e122] [cursor=pointer]: 
+      - generic [ref=f1e124] [cursor=pointer]: 
+      - generic [ref=f1e126] [cursor=pointer]: 
+      - generic [ref=f1e128] [cursor=pointer]: 
+  - generic [ref=f1e130] [cursor=pointer]: 

@@ -275,6 +275,34 @@ export class UserLoginService extends BaseService {
   }
 
   /**
+   * 游客密码注册
+   */
+  async register(phone: string, password: string, nickName?: string) {
+    if (!/^1\d{10}$/.test(phone)) {
+      throw new CoolCommException('请输入正确的手机号');
+    }
+    if (!password || password.length < 6) {
+      throw new CoolCommException('密码长度不能少于6位');
+    }
+    const exists = await this.userInfoEntity.findOneBy({ phone });
+    if (exists) {
+      throw new CoolCommException('该手机号已注册，请直接登录');
+    }
+    const user = await this.userInfoEntity.save({
+      phone,
+      unionid: phone,
+      loginType: 2,
+      nickName: nickName?.trim() || `游客${phone.slice(-4)}`,
+      password: md5(password),
+      status: 1,
+    });
+    return {
+      ...(await this.token({ id: user.id })),
+      user: { id: user.id, phone: user.phone, nickName: user.nickName },
+    };
+  }
+
+  /**
    * 获得token
    * @param info
    * @returns

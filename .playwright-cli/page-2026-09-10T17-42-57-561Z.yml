@@ -1,0 +1,131 @@
+- generic [ref=e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=e130]:
+    - generic [ref=e132]:
+      - generic [ref=e133]: COOL-ADMIN
+      - textbox "搜索关键字" [ref=e142]
+      - menubar [ref=e148]:
+        - menuitem "食-餐饮美食" [expanded] [ref=e149]:
+          - menu [ref=e157]:
+            - menuitem "餐厅管理" [ref=e158] [cursor=pointer]
+            - menuitem "菜品管理" [ref=e162] [cursor=pointer]
+            - menuitem "农产品管理" [ref=e166] [cursor=pointer]
+            - menuitem "餐位时段" [ref=e170] [cursor=pointer]
+            - menuitem "餐饮预订" [ref=e174] [cursor=pointer]
+    - generic [ref=e178]:
+      - generic [ref=e179]:
+        - generic [ref=e180] [cursor=pointer]
+        - generic:
+          - navigation "面包屑"
+        - list [ref=e183]:
+          - listitem [ref=e184] [cursor=pointer]:
+            - generic [ref=e185]:
+              - generic [ref=e186]: AI极速编码
+              - generic [ref=e187]: Start
+          - listitem [ref=e188] [cursor=pointer]
+          - listitem [ref=e192] [cursor=pointer]:
+            - button [ref=e195]
+          - listitem [ref=e198] [cursor=pointer]
+        - button "浏览器验收苗家食堂" [ref=e206] [cursor=pointer]
+      - generic [ref=e213]:
+        - list [ref=e214]:
+          - listitem [ref=e215] [cursor=pointer]
+          - listitem [ref=e218] [cursor=pointer]
+          - listitem [ref=e221] [cursor=pointer]
+        - list [ref=e227]:
+          - listitem [ref=e228] [cursor=pointer]
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - button "刷新" [ref=e234] [cursor=pointer]
+          - button "新增" [ref=e236] [cursor=pointer]
+          - button "删除" [disabled] [ref=e238]
+          - generic [ref=e242]:
+            - textbox "搜索餐厅名称" [ref=e245]
+            - button "搜索" [ref=e246] [cursor=pointer]
+        - generic [ref=e250]:
+          - table [ref=e252]:
+            - rowgroup [ref=e264]:
+              - row "餐厅名称 地址 营业时间 容纳人数 人均消费 评分 状态 创建时间 操作" [ref=e265]:
+                - columnheader [ref=e266]:
+                  - generic [ref=e269] [cursor=pointer]:
+                    - checkbox
+                - columnheader "餐厅名称" [ref=e271]
+                - columnheader "地址" [ref=e273]
+                - columnheader "营业时间" [ref=e275]
+                - columnheader "容纳人数" [ref=e277]
+                - columnheader "人均消费" [ref=e279]
+                - columnheader "评分" [ref=e281]
+                - columnheader "状态" [ref=e283]
+                - columnheader "创建时间" [ref=e285] [cursor=pointer]
+                - columnheader "操作" [ref=e290]
+          - table [ref=e296]:
+            - rowgroup [ref=e308]:
+              - row "乌东苗味长桌宴 贵州省黔东南州台江县乌东村寨门旁 10:30-21:30 120 68.00 4.9 营业 2026-09-11 01:28:27 编辑 删除" [ref=e309]:
+                - cell [ref=e310]:
+                  - generic [ref=e313] [cursor=pointer]:
+                    - checkbox
+                - cell "乌东苗味长桌宴" [ref=e315]
+                - cell "贵州省黔东南州台江县乌东村寨门旁" [ref=e317]
+                - cell "10:30-21:30" [ref=e319]
+                - cell "120" [ref=e321]
+                - cell "68.00" [ref=e323]
+                - cell "4.9" [ref=e325]
+                - cell "营业" [ref=e327]
+                - cell "2026-09-11 01:28:27" [ref=e331]
+                - cell [ref=e333]:
+                  - generic [ref=e335]:
+                    - button "编辑" [ref=e336] [cursor=pointer]
+                    - button "删除" [ref=e338] [cursor=pointer]
+        - generic [ref=e343]:
+          - generic [ref=e344]: 共 1 条
+          - generic [ref=e347] [cursor=pointer]:
+            - generic:
+              - combobox [ref=e349]
+              - generic [ref=e350]: 20条/页
+          - button "上一页" [disabled] [ref=e355]
+          - list [ref=e356]:
+            - listitem "第 1 页" [ref=e357]: "1"
+          - button "下一页" [disabled] [ref=e358]
+          - generic [ref=e359]:
+            - generic [ref=e360]: 前往
+            - spinbutton "页" [ref=e363]: "1"
+            - generic [ref=e364]: 页
+  - generic [ref=e3]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]
+        - textbox "搜索关键字" [ref=e19]
+      - tree [ref=e20]:
+        - treeitem "admin" [ref=e21]
+        - treeitem "base" [ref=e27]
+        - treeitem "community" [ref=e33]
+        - treeitem "demo" [ref=e39]
+        - treeitem "dict" [ref=e45]
+        - treeitem "food" [ref=e51]
+        - treeitem "hotel" [ref=e57]
+        - treeitem "message" [ref=e63]
+        - treeitem "order" [ref=e69]
+        - treeitem "plugin" [ref=e75]
+        - treeitem "recycle" [ref=e81]
+        - treeitem "shop" [ref=e87]
+        - treeitem "space" [ref=e93]
+        - treeitem "task" [ref=e99]
+        - treeitem "tour" [ref=e105]
+        - treeitem "user" [ref=e111]
+    - generic [ref=e117]:
+      - generic [ref=e120] [cursor=pointer]: 
+      - generic [ref=e122] [cursor=pointer]: 
+      - generic [ref=e124] [cursor=pointer]: 
+      - generic [ref=e126] [cursor=pointer]: 
+  - generic [ref=e128] [cursor=pointer]: 
+  - dialog "提示" [ref=e387]:
+    - generic [ref=e388]:
+      - generic [ref=e389]: 提示
+      - paragraph [ref=e397]: 确定退出登录吗？
+      - generic [ref=e398]:
+        - button "取消" [ref=e399] [cursor=pointer]
+        - button "确定" [active] [ref=e401] [cursor=pointer]

@@ -1,0 +1,52 @@
+- main [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - paragraph [ref=e9]: THE SIX WAYS TO MEET WUDONG
+          - heading "从一顿饭开始，慢慢认识这里。" [level=2] [ref=e10]
+        - link "探索全部 →" [ref=e11] [cursor=pointer]:
+          - /url: /search
+      - generic [ref=e12]:
+        - link [ref=e13] [cursor=pointer]:
+          - /url: /shop
+          - generic [ref=e15]:
+            - text: 衣
+            - heading "非遗好物" [level=3] [ref=e16]
+            - paragraph [ref=e17]: 银饰、蜡染与手作故事
+        - link [ref=e18] [cursor=pointer]:
+          - /url: /restaurant
+          - generic [ref=e20]:
+            - text: 食
+            - heading "地道风味" [level=3] [ref=e21]
+            - paragraph [ref=e22]: 一桌苗家长桌宴
+        - link [ref=e23] [cursor=pointer]:
+          - /url: /hotel
+          - generic [ref=e25]:
+            - text: 住
+            - heading "山野住处" [level=3] [ref=e26]
+            - paragraph [ref=e27]: 在木屋里听风
+        - link [ref=e28] [cursor=pointer]:
+          - /url: /scenic
+          - generic [ref=e30]:
+            - text: 行
+            - heading "景区门票" [level=3] [ref=e31]
+            - paragraph [ref=e32]: 把山水装进行囊
+        - link [ref=e33] [cursor=pointer]:
+          - /url: /route
+          - generic [ref=e35]:
+            - text: 游
+            - heading "旅行线路" [level=3] [ref=e36]
+            - paragraph [ref=e37]: 一日或两日的从容
+        - link [ref=e38] [cursor=pointer]:
+          - /url: /community
+          - generic [ref=e40]:
+            - text: 娱
+            - heading "社区旅记" [level=3] [ref=e41]
+            - paragraph [ref=e42]: 听旅人说起乌东
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - paragraph [ref=e47]: NEARBY NOTES
+        - heading "离你不远的好去处" [level=2] [ref=e48]
+      - link "看更多 →" [ref=e49] [cursor=pointer]:
+        - /url: /restaurant

@@ -1,0 +1,79 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "乌东 WUDONG TRAVEL" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: 乌东
+        - text: WUDONG TRAVEL
+      - navigation "主导航" [ref=e8]:
+        - link "衣 · 非遗" [ref=e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=e15]:
+        - button "⌖ 黔东南" [ref=e16] [cursor=pointer]
+        - link "搜索" [ref=e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=e18] [cursor=pointer]:
+          - /url: /cart
+        - link "我的乌东" [ref=e47] [cursor=pointer]:
+          - /url: /account
+  - main [ref=e20]:
+    - generic [ref=e48]:
+      - navigation "面包屑" [ref=e49]:
+        - link "首页" [ref=e50] [cursor=pointer]:
+          - /url: /
+        - text: /个人中心
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - paragraph [ref=e54]: YOUR WUDONG
+            - heading "你好，13800138000" [level=1] [ref=e55]
+          - button "退出登录" [ref=e56] [cursor=pointer]
+        - generic [ref=e57]:
+          - link [ref=e58] [cursor=pointer]:
+            - /url: /orders
+            - text: 单
+            - heading "我的订单" [level=2] [ref=e59]
+            - paragraph [ref=e60]: 查看预订与购买记录
+          - link [ref=e61] [cursor=pointer]:
+            - /url: /account/addresses
+            - text: 址
+            - heading "收货地址" [level=2] [ref=e62]
+            - paragraph [ref=e63]: 管理商品配送地址
+          - link [ref=e64] [cursor=pointer]:
+            - /url: /account/favorites
+            - text: 藏
+            - heading "我的收藏" [level=2] [ref=e65]
+            - paragraph [ref=e66]: 保存喜欢的去处
+          - link [ref=e67] [cursor=pointer]:
+            - /url: /community
+            - text: 信
+            - heading "消息中心" [level=2] [ref=e68]
+            - paragraph [ref=e69]: 查看旅途通知
+  - contentinfo [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - paragraph [ref=e35]: 乌东文旅
+        - paragraph [ref=e36]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: 探索乌东
+        - generic [ref=e39]:
+          - link "非遗好物" [ref=e40] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=e41] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=e42] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=e43]:
+        - paragraph [ref=e44]: 联系我们
+        - paragraph [ref=e45]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=e46]: © 2026 乌东文旅 · 让每一次抵达都有故事

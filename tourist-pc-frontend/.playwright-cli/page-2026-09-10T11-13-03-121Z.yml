@@ -1,0 +1,68 @@
+- generic [ref=f9e3]:
+  - banner [ref=f9e4]:
+    - generic [ref=f9e5]:
+      - link "乌东 WUDONG TRAVEL" [ref=f9e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f9e7]: 乌东
+        - text: WUDONG TRAVEL
+      - navigation "主导航" [ref=f9e8]:
+        - link "衣 · 非遗" [ref=f9e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=f9e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=f9e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=f9e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=f9e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=f9e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=f9e15]:
+        - button "⌖ 黔东南" [ref=f9e16] [cursor=pointer]
+        - link "搜索" [ref=f9e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=f9e18] [cursor=pointer]:
+          - /url: /cart
+        - link "我的乌东" [ref=f9e19] [cursor=pointer]:
+          - /url: /account
+  - main [ref=f9e20]:
+    - generic [ref=f9e21]:
+      - navigation "面包屑" [ref=f9e22]:
+        - link "首页" [ref=f9e23] [cursor=pointer]:
+          - /url: /
+        - text: /非遗好物
+      - generic [ref=f9e24]:
+        - img "[TEST_SEED_20260909]蜀绣挂饰" [ref=f9e25]
+        - generic [ref=f9e26]:
+          - paragraph [ref=f9e27]: 非遗好物
+          - heading "[TEST_SEED_20260909]蜀绣挂饰" [level=1] [ref=f9e28]
+          - paragraph [ref=f9e29]: 测试商品
+          - paragraph [ref=f9e30]: ¥99.90
+          - button "加入购物车" [ref=f9e31] [cursor=pointer]
+      - generic [ref=f9e32]:
+        - article [ref=f9e33]:
+          - heading "关于这里" [level=2] [ref=f9e34]
+          - generic [ref=f9e35]: 用于管理端接口测试。
+        - generic [ref=f9e39]:
+          - paragraph [ref=f9e40]: "[TEST_SEED_20260909]蜀绣挂饰"
+          - paragraph [ref=f9e41]: 乌东村
+          - paragraph [ref=f9e42]: 暂未配置地点坐标
+  - contentinfo [ref=f9e43]:
+    - generic [ref=f9e44]:
+      - generic [ref=f9e45]:
+        - paragraph [ref=f9e46]: 乌东文旅
+        - paragraph [ref=f9e47]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=f9e48]:
+        - paragraph [ref=f9e49]: 探索乌东
+        - generic [ref=f9e50]:
+          - link "非遗好物" [ref=f9e51] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=f9e52] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=f9e53] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=f9e54]:
+        - paragraph [ref=f9e55]: 联系我们
+        - paragraph [ref=f9e56]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=f9e57]: © 2026 乌东文旅 · 让每一次抵达都有故事

@@ -18,7 +18,7 @@ export default {
         password: process.env.DB_PASSWORD ?? '123456',
         database: process.env.DB_NAME || 'cool',
         // 自动建表 注意：线上部署的时候不要使用，有可能导致数据丢失
-        synchronize: false,
+        synchronize: true,
         // 打印日志
         logging: false,
         // 字符集
@@ -36,10 +36,10 @@ export default {
     // 实体与路径，跟生成代码、前端请求、swagger文档相关 注意：线上不建议开启，以免暴露敏感信息
     eps: false,
     // 是否自动导入模块数据库
-    initDB: false,
+    initDB: true,
     // 判断是否初始化的方式
     initJudge: 'db',
     // 是否自动导入模块菜单
-    initMenu: false,
+    initMenu: true,
   } as CoolConfig,
 } as MidwayConfig;

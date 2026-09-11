@@ -1,33 +1,37 @@
 
-FROM node:lts-alpine
+# 使用具体版本号，避免每次拉取
+FROM node:18-alpine
 
 WORKDIR /app
 
 # 配置alpine国内镜像加速
-RUN sed -i "s@http://dl-cdn.alpinelinux.org/@https://repo.huaweicloud.com/@g" /etc/apk/repositories
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
+    && apk add --no-cache tzdata curl
 
-# 安装tzdata,默认的alpine基础镜像不包含时区组件，安装后可通过TZ环境变量配置时区
-RUN apk add --no-cache tzdata
-
-# 设置时区为中国东八区，这里的配置可以被docker-compose.yml或docker run时指定的时区覆盖
+# 设置时区
 ENV TZ="Asia/Shanghai"
 
-# 如果各公司有自己的私有源，可以替换registry地址,如使用官方源注释下一行
+# 配置npm国内镜像
 RUN npm config set registry https://registry.npmmirror.com
 
-# 复制package.json
-COPY package.json ./package.json
-# 安装依赖
-RUN npm install
-# 构建项目
-COPY . .
-RUN npm run build
-# 删除开发期依赖
-RUN rm -rf node_modules && rm package-lock.json    
-# 安装生产环境依赖   
-RUN npm install                        
+# 复制依赖文件
+COPY package*.json ./
 
-# 如果端口更换，这边可以更新一下
+# 安装依赖（使用 ci 更快更可靠）
+RUN npm ci
+
+# 复制源代码
+COPY . .
+
+# 构建项目
+RUN npm run build
+
+# 清理并重新安装依赖（保留 typescript，因为运行时需要）
+RUN rm -rf node_modules && npm ci
+
 EXPOSE 8001
+
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+  CMD curl -f http://localhost:8001/ || exit 1
 
 CMD ["npm", "run", "start"]

@@ -1,0 +1,76 @@
+- generic [ref=f6e3]:
+  - banner [ref=f6e4]:
+    - generic [ref=f6e5]:
+      - link "乌东 WUDONG TRAVEL" [ref=f6e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f6e7]: 乌东
+        - text: WUDONG TRAVEL
+      - navigation "主导航" [ref=f6e8]:
+        - link "衣 · 非遗" [ref=f6e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=f6e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=f6e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=f6e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=f6e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=f6e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=f6e15]:
+        - button "⌖ 黔东南" [ref=f6e16] [cursor=pointer]
+        - link "搜索" [ref=f6e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=f6e18] [cursor=pointer]:
+          - /url: /cart
+        - link "我的乌东" [ref=f6e19] [cursor=pointer]:
+          - /url: /account
+  - main [ref=f6e20]:
+    - generic [ref=f6e57]:
+      - navigation "面包屑" [ref=f6e58]:
+        - link "首页" [ref=f6e59] [cursor=pointer]:
+          - /url: /
+        - text: /预订确认
+      - generic [ref=f6e60]:
+        - paragraph [ref=f6e61]: SCENIC TICKET
+        - heading "预订门票" [level=1] [ref=f6e62]
+        - article [ref=f6e63]:
+          - heading "[TEST_SEED_20260909]云顶景区" [level=2] [ref=f6e64]
+          - paragraph [ref=f6e65]: 线路模块测试景区
+          - paragraph [ref=f6e66]: ¥80 / 人
+        - generic [ref=f6e67]:
+          - text: 票种
+          - combobox "票种" [ref=f6e68]:
+            - option "[TEST_SEED_20260909]成人票 · ¥80.00" [selected]
+        - generic [ref=f6e69]:
+          - generic [ref=f6e70]:
+            - text: 使用日期
+            - textbox "使用日期" [ref=f6e71]: 2026-09-10
+          - generic [ref=f6e72]:
+            - text: 人数
+            - spinbutton "人数" [ref=f6e73]: "1"
+        - generic [ref=f6e74]:
+          - text: 备注
+          - textbox "备注" [ref=f6e75]:
+            - /placeholder: 如票种或游客信息
+        - paragraph [ref=f6e76]: 提交后会生成待支付订单，支付能力暂未配置。
+        - button "创建门票订单" [ref=f6e77] [cursor=pointer]
+  - contentinfo [ref=f6e42]:
+    - generic [ref=f6e43]:
+      - generic [ref=f6e44]:
+        - paragraph [ref=f6e45]: 乌东文旅
+        - paragraph [ref=f6e46]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=f6e47]:
+        - paragraph [ref=f6e48]: 探索乌东
+        - generic [ref=f6e49]:
+          - link "非遗好物" [ref=f6e50] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=f6e51] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=f6e52] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=f6e53]:
+        - paragraph [ref=f6e54]: 联系我们
+        - paragraph [ref=f6e55]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=f6e56]: © 2026 乌东文旅 · 让每一次抵达都有故事

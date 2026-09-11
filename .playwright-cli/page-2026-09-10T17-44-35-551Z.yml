@@ -1,0 +1,119 @@
+- generic [ref=e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=e435]:
+    - generic [ref=e437]:
+      - generic [ref=e438]: COOL-ADMIN
+      - textbox "搜索关键字" [ref=e447]
+      - generic [ref=e449]:
+        - menubar [ref=e453]:
+          - menuitem "系统管理" [ref=e454]
+          - menuitem "数据管理" [ref=e462]
+          - menuitem "扩展管理" [ref=e470]
+          - menuitem "用户管理" [ref=e478]
+          - menuitem "衣-非遗商品" [ref=e486]
+          - menuitem "食-餐饮美食" [ref=e494]
+          - menuitem "住-住宿预订" [ref=e502]
+          - menuitem "行-线路订票" [ref=e510]
+          - menuitem "社区-照片分享" [ref=e518]
+          - menuitem "平台管理" [expanded] [ref=e526]:
+            - menu [ref=e899]:
+              - menuitem "数据概览" [ref=e900] [cursor=pointer]
+              - menuitem "平台公告" [ref=e904] [cursor=pointer]
+              - menuitem "平台轮播" [ref=e908] [cursor=pointer]
+              - menuitem "商家账号" [ref=e912] [cursor=pointer]
+              - menuitem "入驻申请" [active] [ref=e916] [cursor=pointer]
+          - menuitem "框架教程" [ref=e534]
+        - generic [ref=e921] [cursor=pointer]
+    - generic [ref=e542]:
+      - generic [ref=e543]:
+        - generic [ref=e544] [cursor=pointer]
+        - navigation "面包屑" [ref=e923]:
+          - link "平台管理" [ref=e925]
+          - link "入驻申请" [ref=e930]
+        - list [ref=e547]:
+          - listitem [ref=e548] [cursor=pointer]:
+            - generic [ref=e549]:
+              - generic [ref=e550]: AI极速编码
+              - generic [ref=e551]: Start
+          - listitem [ref=e552] [cursor=pointer]
+          - listitem [ref=e556] [cursor=pointer]:
+            - button [ref=e559]
+          - listitem [ref=e562] [cursor=pointer]
+        - button "管理员" [ref=e570] [cursor=pointer]
+      - generic [ref=e577]:
+        - list [ref=e578]:
+          - listitem [ref=e579] [cursor=pointer]
+          - listitem [ref=e582] [cursor=pointer]
+          - listitem [ref=e585] [cursor=pointer]
+        - generic [ref=e588]: 入驻申请
+        - list [ref=e591]:
+          - listitem [ref=e592] [cursor=pointer]
+      - generic [ref=e937]:
+        - generic [ref=e938]:
+          - button "刷新" [ref=e939] [cursor=pointer]
+          - generic [ref=e943]:
+            - textbox "搜索关键字" [ref=e946]
+            - button "搜索" [ref=e947] [cursor=pointer]
+        - generic [ref=e951]:
+          - table [ref=e953]:
+            - rowgroup [ref=e963]:
+              - row [ref=e964]:
+                - columnheader "ID" [ref=e965]
+                - columnheader "店铺名称" [ref=e967]
+                - columnheader "申请模块" [ref=e969]
+                - columnheader "联系人" [ref=e971]
+                - columnheader "联系电话" [ref=e973]
+                - columnheader "状态" [ref=e975]
+                - columnheader "申请时间" [ref=e977]
+                - columnheader "操作" [ref=e979]
+          - generic [ref=e984]:
+            - table:
+              - rowgroup
+            - paragraph [ref=e1007]: 暂无数据
+        - generic [ref=e1011]:
+          - generic [ref=e1012]: 共 0 条
+          - generic [ref=e1015] [cursor=pointer]:
+            - generic:
+              - combobox [ref=e1017]
+              - generic [ref=e1018]: 20条/页
+          - button "上一页" [disabled] [ref=e1023]
+          - list [ref=e1024]:
+            - listitem "第 1 页" [ref=e1025]: "1"
+          - button "下一页" [disabled] [ref=e1026]
+          - generic [ref=e1027]:
+            - generic [ref=e1028]: 前往
+            - spinbutton "页" [ref=e1031]: "1"
+            - generic [ref=e1032]: 页
+  - generic [ref=e3]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11] [cursor=pointer]
+        - textbox "搜索关键字" [ref=e19]
+      - tree [ref=e20]:
+        - treeitem "admin" [ref=e21]
+        - treeitem "base" [ref=e27]
+        - treeitem "community" [ref=e33]
+        - treeitem "demo" [ref=e39]
+        - treeitem "dict" [ref=e45]
+        - treeitem "food" [ref=e51]
+        - treeitem "hotel" [ref=e57]
+        - treeitem "message" [ref=e63]
+        - treeitem "order" [ref=e69]
+        - treeitem "plugin" [ref=e75]
+        - treeitem "recycle" [ref=e81]
+        - treeitem "shop" [ref=e87]
+        - treeitem "space" [ref=e93]
+        - treeitem "task" [ref=e99]
+        - treeitem "tour" [ref=e105]
+        - treeitem "user" [ref=e111]
+    - generic [ref=e117]:
+      - generic [ref=e120] [cursor=pointer]: 
+      - generic [ref=e122] [cursor=pointer]: 
+      - generic [ref=e897] [cursor=pointer]: 
+      - generic [ref=e124] [cursor=pointer]: 
+      - generic [ref=e126] [cursor=pointer]: 
+  - generic [ref=e128] [cursor=pointer]: 

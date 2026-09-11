@@ -1,0 +1,1 @@
+import{K as s}from"./Cq852iAr.js";function o(){const i=s();function r(t){return t?/^https?:\/\//i.test(t)?t:t.startsWith("/upload/wudong/")?`/images/wudong/${t.split("/").pop()}`:t.startsWith("/upload/")||t.startsWith("/uploads/")?`${i.public.mediaBase}${t}`:t:"/hero-wudong.svg"}return{imageUrl:r}}export{o as u};

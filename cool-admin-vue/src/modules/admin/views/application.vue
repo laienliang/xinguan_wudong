@@ -31,11 +31,7 @@
 						<el-radio :label="false">驳回</el-radio>
 					</el-radio-group>
 				</el-form-item>
-				<el-form-item
-					v-if="!reviewDialog.form.approved"
-					label="驳回原因"
-					required
-				>
+				<el-form-item v-if="!reviewDialog.form.approved" label="驳回原因" required>
 					<el-input
 						v-model="reviewDialog.form.rejectReason"
 						type="textarea"
@@ -170,14 +166,17 @@ const Table = useTable({
 		{ label: '申请时间', prop: 'createTime', minWidth: 160 },
 		{
 			type: 'op',
-			buttons: [
+			buttons: ({ scope }) => [
 				'info',
-				{
-					label: '审核',
-					type: 'success',
-					onClick: openReviewDialog,
-					hidden: (row: any) => row.status !== 1
-				}
+				...(scope.row.status === 1
+					? [
+							{
+								label: '审核',
+								type: 'success',
+								onClick: () => openReviewDialog(scope.row)
+							}
+						]
+					: [])
 			],
 			width: 200
 		}
@@ -185,11 +184,11 @@ const Table = useTable({
 });
 
 // cl-crud 配置
-const { Crud } = useCrud(
+const Crud = useCrud(
 	{
 		service: service.admin.merchantApplication
 	},
-	(app) => {
+	app => {
 		app.refresh();
 	}
 );

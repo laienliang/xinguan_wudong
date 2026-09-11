@@ -1,0 +1,150 @@
+- generic [ref=f2e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=f2e130]:
+    - generic [ref=f2e132]:
+      - generic [ref=f2e133]: COOL-ADMIN
+      - textbox "搜索关键字" [ref=f2e142]
+      - menubar [ref=f2e148]:
+        - menuitem "食-餐饮美食" [expanded] [ref=f2e149]:
+          - menu [ref=f2e157]:
+            - menuitem "餐厅管理" [ref=f2e158] [cursor=pointer]
+            - menuitem "菜品管理" [ref=f2e162] [cursor=pointer]
+            - menuitem "农产品管理" [ref=f2e166] [cursor=pointer]
+            - menuitem "餐位时段" [ref=f2e170] [cursor=pointer]
+            - menuitem "餐饮预订" [ref=f2e174] [cursor=pointer]
+    - generic [ref=f2e178]:
+      - generic [ref=f2e179]:
+        - generic [ref=f2e180] [cursor=pointer]
+        - navigation "面包屑" [ref=f2e184]:
+          - link "食-餐饮美食" [ref=f2e186]
+          - link "餐位时段" [ref=f2e191]
+        - list [ref=f2e192]:
+          - listitem [ref=f2e193] [cursor=pointer]:
+            - generic [ref=f2e194]:
+              - generic [ref=f2e195]: AI极速编码
+              - generic [ref=f2e196]: Start
+          - listitem [ref=f2e197] [cursor=pointer]
+          - listitem [ref=f2e201] [cursor=pointer]:
+            - button [ref=f2e204]
+          - listitem [ref=f2e207] [cursor=pointer]
+        - button "浏览器验收苗家食堂" [ref=f2e215] [cursor=pointer]
+      - generic [ref=f2e222]:
+        - list [ref=f2e223]:
+          - listitem [ref=f2e224] [cursor=pointer]
+          - listitem [ref=f2e227] [cursor=pointer]
+          - listitem [ref=f2e230] [cursor=pointer]
+        - generic [ref=f2e233]: 餐位时段
+        - list [ref=f2e242]:
+          - listitem [ref=f2e243] [cursor=pointer]
+      - generic [ref=f2e247]:
+        - generic [ref=f2e248]:
+          - button "刷新" [ref=f2e249] [cursor=pointer]
+          - button "新增" [ref=f2e251] [cursor=pointer]
+          - button "删除" [disabled] [ref=f2e253]
+        - generic [ref=f2e258]:
+          - table [ref=f2e260]:
+            - rowgroup [ref=f2e270]:
+              - row "时段名称 开始时间 结束时间 最大预订人数 状态 创建时间 操作" [ref=f2e271]:
+                - columnheader [ref=f2e272]:
+                  - generic [ref=f2e275] [cursor=pointer]:
+                    - checkbox [disabled]
+                - columnheader "时段名称" [ref=f2e277]
+                - columnheader "开始时间" [ref=f2e279]
+                - columnheader "结束时间" [ref=f2e281]
+                - columnheader "最大预订人数" [ref=f2e283]
+                - columnheader "状态" [ref=f2e285]
+                - columnheader "创建时间" [ref=f2e287] [cursor=pointer]
+                - columnheader "操作" [ref=f2e292]
+          - generic [ref=f2e297]:
+            - table:
+              - rowgroup
+            - paragraph [ref=f2e320]: 暂无数据
+        - generic [ref=f2e324]:
+          - generic [ref=f2e325]: 共 0 条
+          - generic [ref=f2e328] [cursor=pointer]:
+            - generic:
+              - combobox [ref=f2e330]
+              - generic [ref=f2e331]: 20条/页
+          - button "上一页" [disabled] [ref=f2e336]
+          - list [ref=f2e337]:
+            - listitem "第 1 页" [ref=f2e338]: "1"
+          - button "下一页" [disabled] [ref=f2e339]
+          - generic [ref=f2e340]:
+            - generic [ref=f2e341]: 前往
+            - spinbutton "页" [ref=f2e344]: "1"
+            - generic [ref=f2e345]: 页
+  - generic [ref=f2e3]:
+    - generic [ref=f2e9]:
+      - generic [ref=f2e10]:
+        - generic [ref=f2e11] [cursor=pointer]
+        - textbox "搜索关键字" [ref=f2e19]
+      - tree [ref=f2e20]:
+        - treeitem "admin" [ref=f2e21]
+        - treeitem "base" [ref=f2e27]
+        - treeitem "community" [ref=f2e33]
+        - treeitem "demo" [ref=f2e39]
+        - treeitem "dict" [ref=f2e45]
+        - treeitem "food" [ref=f2e51]
+        - treeitem "hotel" [ref=f2e57]
+        - treeitem "message" [ref=f2e63]
+        - treeitem "order" [ref=f2e69]
+        - treeitem "plugin" [ref=f2e75]
+        - treeitem "recycle" [ref=f2e81]
+        - treeitem "shop" [ref=f2e87]
+        - treeitem "space" [ref=f2e93]
+        - treeitem "task" [ref=f2e99]
+        - treeitem "tour" [ref=f2e105]
+        - treeitem "user" [ref=f2e111]
+    - generic [ref=f2e117]:
+      - generic [ref=f2e120] [cursor=pointer]: 
+      - generic [ref=f2e122] [cursor=pointer]: 
+      - generic [ref=f2e124] [cursor=pointer]: 
+      - generic [ref=f2e126] [cursor=pointer]: 
+  - generic [ref=f2e128] [cursor=pointer]: 
+  - dialog [ref=f2e347]:
+    - generic [ref=f2e348]:
+      - banner [ref=f2e349]:
+        - generic [ref=f2e350]:
+          - generic [ref=f2e351]: 新增
+          - generic [ref=f2e352]:
+            - button [ref=f2e353] [cursor=pointer]
+            - button [ref=f2e357] [cursor=pointer]
+      - generic [ref=f2e369]:
+        - generic [ref=f2e371]:
+          - generic [ref=f2e372]: 餐厅*
+          - textbox "餐厅*" [active] [ref=f2e379]:
+            - /placeholder: 请输入餐厅ID
+        - generic [ref=f2e381]:
+          - generic [ref=f2e382]: 时段名称*
+          - textbox "时段名称*" [ref=f2e389]:
+            - /placeholder: 如：午餐 11:30-13:30
+        - generic [ref=f2e391]:
+          - generic [ref=f2e392]: 开始时间*
+          - combobox "开始时间*" [ref=f2e405]
+        - generic [ref=f2e407]:
+          - generic [ref=f2e408]: 结束时间*
+          - combobox "结束时间*" [ref=f2e421]
+        - generic [ref=f2e423]:
+          - generic [ref=f2e424]: 最大预订人数*
+          - generic [ref=f2e429]:
+            - button "减少数值" [ref=f2e430] [cursor=pointer]
+            - button "增加数值" [ref=f2e434] [cursor=pointer]
+            - spinbutton "最大预订人数*" [ref=f2e440]
+        - generic [ref=f2e442]:
+          - generic [ref=f2e443]: 状态
+          - radiogroup "状态" [ref=f2e448]:
+            - generic [ref=f2e449]:
+              - generic [ref=f2e450] [cursor=pointer]:
+                - radio "禁用" [ref=f2e452]
+                - generic [ref=f2e454]: 禁用
+              - generic [ref=f2e455] [cursor=pointer]:
+                - radio "启用" [checked] [ref=f2e457]
+                - generic [ref=f2e459]: 启用
+      - contentinfo [ref=f2e460]:
+        - generic [ref=f2e462]:
+          - button "取消" [ref=f2e463] [cursor=pointer]
+          - button "保存" [ref=f2e465] [cursor=pointer]

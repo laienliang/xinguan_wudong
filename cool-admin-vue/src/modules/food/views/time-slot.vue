@@ -33,7 +33,7 @@ const { service } = useCool();
 // cl-crud 配置
 const Crud = useCrud(
 	{
-		service: service.food.timeSlot
+		service: service.food.time_slot
 	},
 	app => {
 		app.refresh();

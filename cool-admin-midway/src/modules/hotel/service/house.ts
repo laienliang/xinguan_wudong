@@ -23,4 +23,31 @@ export class HotelHouseService extends BaseService {
       }
     }
   }
+
+  /**
+   * 按距离查询附近民宿
+   */
+  async findNearby(
+    longitude: number,
+    latitude: number,
+    distance: number = 10,
+    limit: number = 20
+  ) {
+    const sql = `
+      SELECT *,
+      (6371 * acos(cos(radians(?)) * cos(radians(latitude)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(latitude)))) AS distance
+      FROM hotel_house
+      WHERE status = 1
+      HAVING distance < ?
+      ORDER BY distance ASC
+      LIMIT ?
+    `;
+    return this.hotelHouseEntity.query(sql, [
+      latitude,
+      longitude,
+      latitude,
+      distance,
+      limit,
+    ]);
+  }
 }

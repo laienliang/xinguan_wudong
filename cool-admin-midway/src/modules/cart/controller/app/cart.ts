@@ -1,4 +1,4 @@
-import { Provide, Inject, Get, Put, Del, Body } from '@midwayjs/core';
+import { Provide, Inject, Get, Put, Del, Post, Body } from '@midwayjs/core';
 import { CoolController, BaseController } from '@cool-midway/core';
 import { CartService } from '../../service/cart';
 import { CartEntity } from '../../entity/cart';
@@ -14,7 +14,10 @@ import { getUserFromContext } from '../../../user/utils/auth';
   entity: CartEntity,
   service: CartService,
   insertParam: ctx => {
-    const user = getUserFromContext(ctx, '5bd61df7-8a04-4a6e-aaad-9d520d0ec195x');
+    const user = getUserFromContext(
+      ctx,
+      '5bd61df7-8a04-4a6e-aaad-9d520d0ec195x'
+    );
     return {
       userId: user?.id,
     };
@@ -37,11 +40,38 @@ export class AppCartController extends BaseController {
   cartService: CartService;
 
   /**
+   * 加入购物车
+   */
+  @Post('/add', { summary: '加入购物车' })
+  async add() {
+    const body = this.baseCtx.request.body as {
+      goodsId: string;
+      goodsType: number;
+      skuId?: string;
+      quantity?: number;
+    };
+    const userId = this.getUserId('app');
+    return this.ok(await this.cartService.addOrIncrement(userId, body));
+  }
+
+  /**
+   * 查询当前用户购物车
+   */
+  @Post('/list', { summary: '查询购物车' })
+  async list() {
+    const userId = this.getUserId('app');
+    return this.ok(await this.cartService.listWithGoods(userId));
+  }
+
+  /**
    * 更新数量
    */
   @Put('/:id/quantity', { summary: '更新数量' })
   async updateQuantity(@Body('quantity') quantity: number) {
-    await this.cartService.updateQuantity(Number(this.baseCtx.params.id), quantity);
+    await this.cartService.updateQuantity(
+      Number(this.baseCtx.params.id),
+      quantity
+    );
     return this.ok();
   }
 

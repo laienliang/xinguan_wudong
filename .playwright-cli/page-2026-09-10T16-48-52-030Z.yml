@@ -1,0 +1,66 @@
+- generic [ref=e1]:
+  - generic:
+    - generic:
+      - generic: COOL-ADMIN
+      - generic: 正在加载资源...
+      - generic: 初次加载资源可能需要较多时间，请耐心等待
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - img "Logo" [ref=e7]
+        - generic [ref=e8]: COOL-ADMIN
+      - paragraph [ref=e9]: 快速开发后台权限管理系统
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: 用户名
+          - textbox "用户名" [ref=e17]:
+            - /placeholder: 请输入用户名
+            - text: admin
+        - generic [ref=e18]:
+          - generic [ref=e19]: 密码
+          - generic [ref=e22]:
+            - textbox "密码" [ref=e23]:
+              - /placeholder: 请输入密码
+              - text: "123456"
+            - generic [ref=e185] [cursor=pointer]
+        - generic [ref=e24]:
+          - generic [ref=e25]: 验证码
+          - generic [ref=e28]:
+            - textbox "验证码" [ref=e29]
+            - generic [ref=e30] [cursor=pointer]
+        - button "登录" [ref=e35] [cursor=pointer]
+    - link "Copyright © COOL" [ref=e37] [cursor=pointer]:
+      - /url: https://cool-js.com
+  - generic [ref=e38]:
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46] [cursor=pointer]
+        - textbox "搜索关键字" [ref=e54]
+      - tree [ref=e55]:
+        - treeitem "admin" [ref=e56]
+        - treeitem "base" [ref=e62]
+        - treeitem "community" [ref=e68]
+        - treeitem "demo" [ref=e74]
+        - treeitem "dict" [ref=e80]
+        - treeitem "food" [ref=e86]
+        - treeitem "hotel" [ref=e92]
+        - treeitem "message" [ref=e98]
+        - treeitem "order" [ref=e104]
+        - treeitem "plugin" [ref=e110]
+        - treeitem "recycle" [ref=e116]
+        - treeitem "shop" [ref=e122]
+        - treeitem "space" [ref=e128]
+        - treeitem "task" [ref=e134]
+        - treeitem "tour" [ref=e140]
+        - treeitem "user" [ref=e146]
+    - generic [ref=e152]:
+      - generic [ref=e155] [cursor=pointer]: 
+      - generic [ref=e157] [cursor=pointer]: 
+      - generic [ref=e159] [cursor=pointer]: 
+      - generic [ref=e161] [cursor=pointer]: 
+  - generic [ref=e163] [cursor=pointer]: 
+  - dialog "提示" [ref=e190]:
+    - generic [ref=e191]:
+      - generic [ref=e192]: 提示
+      - paragraph [ref=e200]: 验证码不正确
+      - button "确定" [active] [ref=e202] [cursor=pointer]

@@ -1,0 +1,182 @@
+- generic [ref=f3e3]:
+  - banner [ref=f3e4]:
+    - generic [ref=f3e5]:
+      - link "乌东文旅 苗岭深处的慢游时光" [ref=f3e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e7]: 乌东文旅
+        - text: 苗岭深处的慢游时光
+      - navigation "主导航" [ref=f3e8]:
+        - link "衣 · 非遗" [ref=f3e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=f3e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=f3e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=f3e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=f3e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=f3e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=f3e15]:
+        - button "⌖ 黔东南" [ref=f3e16] [cursor=pointer]
+        - link "搜索" [ref=f3e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=f3e18] [cursor=pointer]:
+          - /url: /cart
+        - link "我的乌东" [ref=f3e19] [cursor=pointer]:
+          - /url: /account
+  - main [ref=f3e20]:
+    - generic [ref=f3e21]:
+      - generic [ref=f3e22]:
+        - img "乌东苗寨山谷与木屋风景" [ref=f3e23]
+        - generic [ref=f3e26]:
+          - paragraph [ref=f3e27]: 苗岭深处 · 乌东村
+          - heading "乌东，等风也等你。" [level=1] [ref=f3e28]
+          - paragraph [ref=f3e29]: 走进苗寨深处，吃一桌长桌宴，住一晚山野木屋，在吊脚楼的晨雾里，把旅途交给这里的人和时间。
+          - generic [ref=f3e30]:
+            - link "开始探索" [ref=f3e31] [cursor=pointer]:
+              - /url: /scenic
+            - link "看看旅人故事" [ref=f3e32] [cursor=pointer]:
+              - /url: /community
+      - generic [ref=f3e33]:
+        - generic [ref=f3e34]:
+          - generic [ref=f3e35]:
+            - paragraph [ref=f3e36]: 六种方式，遇见乌东
+            - heading "从一顿饭开始，慢慢认识这里。" [level=2] [ref=f3e37]
+          - link "探索全部 →" [ref=f3e38] [cursor=pointer]:
+            - /url: /search
+        - generic [ref=f3e39]:
+          - link [ref=f3e40] [cursor=pointer]:
+            - /url: /shop
+            - generic [ref=f3e42]:
+              - text: 衣
+              - heading "非遗好物" [level=3] [ref=f3e43]
+              - paragraph [ref=f3e44]: 银饰、蜡染与手作故事
+          - link [ref=f3e45] [cursor=pointer]:
+            - /url: /restaurant
+            - generic [ref=f3e47]:
+              - text: 食
+              - heading "地道风味" [level=3] [ref=f3e48]
+              - paragraph [ref=f3e49]: 一桌苗家长桌宴
+          - link [ref=f3e50] [cursor=pointer]:
+            - /url: /hotel
+            - generic [ref=f3e52]:
+              - text: 住
+              - heading "山野住处" [level=3] [ref=f3e53]
+              - paragraph [ref=f3e54]: 在木屋里听风
+          - link [ref=f3e55] [cursor=pointer]:
+            - /url: /scenic
+            - generic [ref=f3e57]:
+              - text: 行
+              - heading "景区门票" [level=3] [ref=f3e58]
+              - paragraph [ref=f3e59]: 把山水装进行囊
+          - link [ref=f3e60] [cursor=pointer]:
+            - /url: /route
+            - generic [ref=f3e62]:
+              - text: 游
+              - heading "旅行线路" [level=3] [ref=f3e63]
+              - paragraph [ref=f3e64]: 一日或两日的从容
+          - link [ref=f3e65] [cursor=pointer]:
+            - /url: /community
+            - generic [ref=f3e67]:
+              - text: 娱
+              - heading "社区旅记" [level=3] [ref=f3e68]
+              - paragraph [ref=f3e69]: 听旅人说起乌东
+      - generic [ref=f3e71]:
+        - generic [ref=f3e72]:
+          - generic [ref=f3e73]:
+            - paragraph [ref=f3e74]: 山谷推荐
+            - heading "离你不远的好去处" [level=2] [ref=f3e75]
+          - link "看更多 →" [ref=f3e76] [cursor=pointer]:
+            - /url: /restaurant
+        - generic [ref=f3e77]:
+          - link "乌东苗味长桌宴 乌东苗味长桌宴 ★ 4.9 贵州省黔东南州台江县乌东村寨门旁" [ref=f3e78] [cursor=pointer]:
+            - /url: /restaurant/3
+            - img "乌东苗味长桌宴" [ref=f3e80]
+            - generic [ref=f3e81]:
+              - generic [ref=f3e82]:
+                - heading "乌东苗味长桌宴" [level=3] [ref=f3e83]
+                - generic [ref=f3e84]: ★ 4.9
+              - paragraph [ref=f3e85]: 贵州省黔东南州台江县乌东村寨门旁
+          - link "[TEST_SEED_20260909]山野餐厅 [TEST_SEED_20260909]山野餐厅 ★ 4.8 测试地址" [ref=f3e86] [cursor=pointer]:
+            - /url: /restaurant/1
+            - img "[TEST_SEED_20260909]山野餐厅" [ref=f3e88]
+            - generic [ref=f3e89]:
+              - generic [ref=f3e90]:
+                - heading "[TEST_SEED_20260909]山野餐厅" [level=3] [ref=f3e91]
+                - generic [ref=f3e92]: ★ 4.8
+              - paragraph [ref=f3e93]: 测试地址
+          - link "[TEST_SEED_20260910]溪边小馆 [TEST_SEED_20260910]溪边小馆 ★ 4.6 测试餐厅二号" [ref=f3e94] [cursor=pointer]:
+            - /url: /restaurant/2
+            - img "[TEST_SEED_20260910]溪边小馆" [ref=f3e96]
+            - generic [ref=f3e97]:
+              - generic [ref=f3e98]:
+                - heading "[TEST_SEED_20260910]溪边小馆" [level=3] [ref=f3e99]
+                - generic [ref=f3e100]: ★ 4.6
+              - paragraph [ref=f3e101]: 测试餐厅二号
+      - generic [ref=f3e102]:
+        - generic [ref=f3e103]:
+          - generic [ref=f3e104]:
+            - paragraph [ref=f3e105]: 苗寨手作
+            - heading "带走一件乌东的手艺" [level=2] [ref=f3e106]
+          - link "查看好物 →" [ref=f3e107] [cursor=pointer]:
+            - /url: /shop
+        - generic [ref=f3e108]:
+          - link [ref=f3e109] [cursor=pointer]:
+            - /url: /shop/4
+            - img "[乌东展示]蜡染方巾" [ref=f3e111]
+            - generic [ref=f3e112]:
+              - heading "[乌东展示]蜡染方巾" [level=3] [ref=f3e113]
+              - paragraph [ref=f3e114]: 蓝靛染出的乌东山色
+              - paragraph [ref=f3e115]: ¥128.00
+          - link [ref=f3e116] [cursor=pointer]:
+            - /url: /shop/3
+            - img "[乌东展示]苗银耳饰" [ref=f3e118]
+            - generic [ref=f3e119]:
+              - heading "[乌东展示]苗银耳饰" [level=3] [ref=f3e120]
+              - paragraph [ref=f3e121]: 轻盈的苗族银饰纹样
+              - paragraph [ref=f3e122]: ¥198.00
+          - link [ref=f3e123] [cursor=pointer]:
+            - /url: /shop/2
+            - img "[乌东展示]苗绣云纹手提包" [ref=f3e125]
+            - generic [ref=f3e126]:
+              - heading "[乌东展示]苗绣云纹手提包" [level=3] [ref=f3e127]
+              - paragraph [ref=f3e128]: 手工苗绣，日常可背的山野色彩
+              - paragraph [ref=f3e129]: ¥268.00
+      - generic [ref=f3e131]:
+        - generic [ref=f3e132]:
+          - generic [ref=f3e133]:
+            - paragraph [ref=f3e134]: 旅人故事
+            - heading "旅人写下的这一页" [level=2] [ref=f3e135]
+          - link "阅读更多 →" [ref=f3e136] [cursor=pointer]:
+            - /url: /community
+        - generic [ref=f3e137]:
+          - link [ref=f3e138] [cursor=pointer]:
+            - /url: /community/2
+            - img "[乌东展示]清晨的乌东村，云雾刚刚散开" [ref=f3e140]
+            - heading "[乌东展示]清晨的乌东村，云雾刚刚散开" [level=3] [ref=f3e141]
+            - paragraph [ref=f3e142]: 沿着石阶走到半山，吊脚楼屋檐还挂着晨雾。村里的阿婆说，乌东最适合慢下来，喝一碗热汤，再去看看梯田。
+          - link [ref=f3e143] [cursor=pointer]:
+            - /url: /community/1
+            - img "[TEST_SEED_20260909]我的非遗之旅" [ref=f3e145]
+            - heading "[TEST_SEED_20260909]我的非遗之旅" [level=3] [ref=f3e146]
+            - paragraph [ref=f3e147]: 这是一条用于接口测试的游记。
+  - contentinfo [ref=f3e148]:
+    - generic [ref=f3e149]:
+      - generic [ref=f3e150]:
+        - paragraph [ref=f3e151]: 乌东文旅
+        - paragraph [ref=f3e152]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=f3e153]:
+        - paragraph [ref=f3e154]: 探索乌东
+        - generic [ref=f3e155]:
+          - link "非遗好物" [ref=f3e156] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=f3e157] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=f3e158] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=f3e159]:
+        - paragraph [ref=f3e160]: 联系我们
+        - paragraph [ref=f3e161]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=f3e162]: © 2026 乌东文旅 · 让每一次抵达都有故事

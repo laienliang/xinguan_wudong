@@ -1,4 +1,4 @@
-import { Provide, Inject, Post, Body, Get } from '@midwayjs/core';
+import { Provide, Inject, Post, Body } from '@midwayjs/core';
 import { CoolController, BaseController } from '@cool-midway/core';
 import { ShopOrderEntity } from '../../entity/order';
 import { ShopOrderService } from '../../service/order';
@@ -27,6 +27,15 @@ import { ShopOrderService } from '../../service/order';
 export class AppShopOrderController extends BaseController {
   @Inject()
   shopOrderService: ShopOrderService;
+
+  /**
+   * 从购物车结算商品订单
+   */
+  @Post('/checkout', { summary: '购物车商品结算' })
+  async checkout(@Body('addressId') addressId: string) {
+    const userId = this.getUserId('app');
+    return this.ok(await this.shopOrderService.checkout(userId, addressId));
+  }
 
   /**
    * 确认收货

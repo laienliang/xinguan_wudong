@@ -1,0 +1,1 @@
+import{D as o,g as i}from"./Cq852iAr.js";import{u as n}from"./BVkqi6dS.js";function p(s,a){const t=o(),{request:e}=i(),{data:u,pending:r}=n(`${s}-${t.params.id}`,()=>e(a,{query:{id:t.params.id}}).catch(()=>null));return{item:u,pending:r}}export{p as u};

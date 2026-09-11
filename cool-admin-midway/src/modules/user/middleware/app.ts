@@ -30,7 +30,48 @@ export class UserMiddleware implements IMiddleware<Context, NextFunction> {
 
   @Init()
   async init() {
-    this.ignoreUrls = this.coolUrlTagData.byKey(TagTypes.IGNORE_TOKEN, 'app');
+    const publicBrowseUrls = [
+      '/app/shop/goods/info',
+      '/app/shop/goods/list',
+      '/app/shop/goods/page',
+      '/app/shop/goods',
+      '/app/shop/category/info',
+      '/app/shop/category/list',
+      '/app/food/restaurant/info',
+      '/app/food/restaurant/list',
+      '/app/food/restaurant/page',
+      '/app/food/restaurant/nearby',
+      '/app/food/restaurant',
+      '/app/food/time-slot/info',
+      '/app/food/time-slot/list',
+      '/app/hotel/house/info',
+      '/app/hotel/house/list',
+      '/app/hotel/house/page',
+      '/app/hotel/house/nearby',
+      '/app/hotel/house',
+      '/app/hotel/room_type/info',
+      '/app/hotel/room_type/list',
+      '/app/tour/scenic-spot/info',
+      '/app/tour/scenic-spot/list',
+      '/app/tour/scenic-spot/page',
+      '/app/tour/scenic-spot/nearby',
+      '/app/tour/scenic-spot',
+      '/app/tour/ticket-type/info',
+      '/app/tour/ticket-type/list',
+      '/app/tour/route/info',
+      '/app/tour/route/list',
+      '/app/tour/route/page',
+      '/app/tour/route',
+      '/app/community/post/info',
+      '/app/community/post/list',
+      '/app/community/post/page',
+      '/app/community/post',
+      '/app/community/post/*/detail',
+    ];
+    this.ignoreUrls = [
+      ...this.coolUrlTagData.byKey(TagTypes.IGNORE_TOKEN, 'app'),
+      ...publicBrowseUrls,
+    ];
   }
 
   resolve() {

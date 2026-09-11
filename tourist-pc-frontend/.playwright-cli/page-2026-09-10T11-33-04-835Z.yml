@@ -1,0 +1,106 @@
+- generic [ref=f5e3]:
+  - banner [ref=f5e4]:
+    - generic [ref=f5e5]:
+      - link "乌东 WUDONG TRAVEL" [ref=f5e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f5e7]: 乌东
+        - text: WUDONG TRAVEL
+      - navigation "主导航" [ref=f5e8]:
+        - link "衣 · 非遗" [ref=f5e9] [cursor=pointer]:
+          - /url: /shop
+        - link "食 · 餐饮" [ref=f5e10] [cursor=pointer]:
+          - /url: /restaurant
+        - link "住 · 民宿" [ref=f5e11] [cursor=pointer]:
+          - /url: /hotel
+        - link "行 · 景区" [ref=f5e12] [cursor=pointer]:
+          - /url: /scenic
+        - link "游 · 线路" [ref=f5e13] [cursor=pointer]:
+          - /url: /route
+        - link "娱 · 社区" [ref=f5e14] [cursor=pointer]:
+          - /url: /community
+      - generic [ref=f5e15]:
+        - button "⌖ 黔东南" [ref=f5e16] [cursor=pointer]
+        - link "搜索" [ref=f5e17] [cursor=pointer]:
+          - /url: /search
+        - link "购物车" [ref=f5e18] [cursor=pointer]:
+          - /url: /cart
+        - link "我的乌东" [ref=f5e19] [cursor=pointer]:
+          - /url: /account
+  - main [ref=f5e20]:
+    - generic [ref=f5e57]:
+      - navigation "面包屑" [ref=f5e58]:
+        - link "首页" [ref=f5e59] [cursor=pointer]:
+          - /url: /
+        - text: /我的订单
+      - paragraph [ref=f5e60]: YOUR JOURNEY
+      - heading "订单记录" [level=1] [ref=f5e61]
+      - generic [ref=f5e62]:
+        - article [ref=f5e63]:
+          - generic [ref=f5e64]:
+            - paragraph [ref=f5e65]: 订单号 1789039983845891363
+            - generic [ref=f5e66]: 待支付
+          - generic [ref=f5e67]:
+            - paragraph [ref=f5e68]: 文旅预订
+            - paragraph [ref=f5e69]: ¥80.00
+          - generic [ref=f5e70]:
+            - link "查看详情" [ref=f5e71] [cursor=pointer]:
+              - /url: /orders/1789039983845891363
+            - button "取消订单" [ref=f5e72] [cursor=pointer]
+        - article [ref=f5e73]:
+          - generic [ref=f5e74]:
+            - paragraph [ref=f5e75]: 订单号 1789039915593666034
+            - generic [ref=f5e76]: 待支付
+          - generic [ref=f5e77]:
+            - paragraph [ref=f5e78]: 文旅预订
+            - paragraph [ref=f5e79]: ¥268.00
+          - generic [ref=f5e80]:
+            - link "查看详情" [ref=f5e81] [cursor=pointer]:
+              - /url: /orders/1789039915593666034
+            - button "取消订单" [ref=f5e82] [cursor=pointer]
+        - article [ref=f5e83]:
+          - generic [ref=f5e84]:
+            - paragraph [ref=f5e85]: 订单号 1789035172532073695
+            - generic [ref=f5e86]: 已取消
+          - generic [ref=f5e87]:
+            - paragraph [ref=f5e88]: 商品订单
+            - paragraph [ref=f5e89]: ¥599.40
+          - link "查看详情" [ref=f5e91] [cursor=pointer]:
+            - /url: /orders/1789035172532073695
+        - article [ref=f5e92]:
+          - generic [ref=f5e93]:
+            - paragraph [ref=f5e94]: 订单号 1789031440702264923
+            - generic [ref=f5e95]: 待支付
+          - generic [ref=f5e96]:
+            - paragraph [ref=f5e97]: 文旅预订
+            - paragraph [ref=f5e98]: ¥68.00
+          - generic [ref=f5e99]:
+            - link "查看详情" [ref=f5e100] [cursor=pointer]:
+              - /url: /orders/1789031440702264923
+            - button "取消订单" [ref=f5e101] [cursor=pointer]
+        - article [ref=f5e102]:
+          - generic [ref=f5e103]:
+            - paragraph [ref=f5e104]: 订单号 1789028628174623666
+            - generic [ref=f5e105]: 已取消
+          - generic [ref=f5e106]:
+            - paragraph [ref=f5e107]: 商品订单
+            - paragraph [ref=f5e108]: ¥99.90
+          - link "查看详情" [ref=f5e110] [cursor=pointer]:
+            - /url: /orders/1789028628174623666
+  - contentinfo [ref=f5e42]:
+    - generic [ref=f5e43]:
+      - generic [ref=f5e44]:
+        - paragraph [ref=f5e45]: 乌东文旅
+        - paragraph [ref=f5e46]: 在苗寨的山风与木香之间，发现一段值得记住的旅程。
+      - generic [ref=f5e47]:
+        - paragraph [ref=f5e48]: 探索乌东
+        - generic [ref=f5e49]:
+          - link "非遗好物" [ref=f5e50] [cursor=pointer]:
+            - /url: /shop
+          - link "地道风味" [ref=f5e51] [cursor=pointer]:
+            - /url: /restaurant
+          - link "山野住处" [ref=f5e52] [cursor=pointer]:
+            - /url: /hotel
+      - generic [ref=f5e53]:
+        - paragraph [ref=f5e54]: 联系我们
+        - paragraph [ref=f5e55]: 贵州省黔东南苗族侗族自治州乌东村文旅服务中心
+    - generic [ref=f5e56]: © 2026 乌东文旅 · 让每一次抵达都有故事

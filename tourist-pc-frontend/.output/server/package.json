@@ -1,0 +1,23 @@
+{
+  "name": "wudong-tourist-pc-prod",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@babel/parser": "7.29.8",
+    "@vue/compiler-core": "3.5.13",
+    "@vue/compiler-dom": "3.5.42",
+    "@vue/compiler-ssr": "3.5.42",
+    "@vue/reactivity": "3.5.42",
+    "@vue/runtime-core": "3.5.42",
+    "@vue/runtime-dom": "3.5.13",
+    "@vue/shared": "3.5.42",
+    "devalue": "5.9.2",
+    "entities": "4.5.0",
+    "estree-walker": "2.0.2",
+    "hookable": "6.1.1",
+    "perfect-debounce": "1.0.0",
+    "source-map-js": "1.2.1",
+    "unhead": "2.1.17"
+  }
+}
